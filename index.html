@@ -423,16 +423,27 @@
     }
 
     .industry-icon {
-      font-size: 48px;
       margin-bottom: 16px;
-      display: inline-block;
       width: 70px;
       height: 70px;
       background: #E8F4F5;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
+      background-size: 210px 70px;
+      background-repeat: no-repeat;
+      background-image: url('industry-icons.png');
+    }
+
+    .industry-card:nth-child(1) .industry-icon {
+      background-position: 0 0;
+    }
+
+    .industry-card:nth-child(2) .industry-icon {
+      background-position: -70px 0;
+    }
+
+    .industry-card:nth-child(3) .industry-icon {
+      background-position: -140px 0;
     }
 
     .industry-card h3 {
@@ -904,23 +915,17 @@
   </div>
   <div class="industry-grid">
     <div class="industry-card" onclick="selectIndustry(this, 'restaurant')">
-      <div class="industry-icon">
-        <img src="industry-icons.png" alt="Restaurants" style="width:48px;height:48px;object-position:0 0;object-fit:contain;">
-      </div>
+      <div class="industry-icon"></div>
       <h3>Restaurants</h3>
       <p>Cafés, bars, food trucks & dining spots</p>
     </div>
     <div class="industry-card" onclick="selectIndustry(this, 'construction')">
-      <div class="industry-icon">
-        <img src="industry-icons.png" alt="Construction" style="width:48px;height:48px;object-position:33% 0;object-fit:contain;">
-      </div>
+      <div class="industry-icon"></div>
       <h3>Construction & Home Services</h3>
       <p>Contractors, plumbers, electricians & more</p>
     </div>
     <div class="industry-card" onclick="selectIndustry(this, 'gym')">
-      <div class="industry-icon">
-        <img src="industry-icons.png" alt="Gyms" style="width:48px;height:48px;object-position:66% 0;object-fit:contain;">
-      </div>
+      <div class="industry-icon"></div>
       <h3>Gyms, Trainers & Wellness</h3>
       <p>Fitness studios, personal trainers & wellness pros</p>
     </div>
