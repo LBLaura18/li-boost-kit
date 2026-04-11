@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LI Boost Kit - Marketing Made Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0F9BA8;
+      --primary-dark: #0D7F88;
+      --navy: #1A2332;
+      --navy-light: #2D3E52;
+      --cream: #F5F3F0;
+      --cream-dark: #E8E3DC;
+      --text-dark: #1A1614;
+      --text-light: #6B7280;
+      --border: #E0D9D0;
+      --success: #2D7A5F;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .get-started-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .get-started-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 80px 40px;
+      background: linear-gradient(135deg, #F5F3F0 0%, #FAFAF8 100%);
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .stars {
+      color: #FFA500;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+
+    .hero h1 .highlight {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text-dark);
+      border: 2px solid var(--text-dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── VALUE PROPS ── */
+    .value-props {
+      padding: 80px 40px;
+      background: white;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--navy);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .value-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+      display: inline-block;
+      background: #E8F4F5;
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .value-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .value-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── WHAT IS IT SECTION ── */
+    .what-is-section {
+      padding: 80px 40px;
+      background: #F5F3F0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .what-is-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--navy);
+    }
+
+    .what-is-content p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .what-is-highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .what-is-image {
+      background: linear-gradient(135deg, #D4B5A0, #E8D5C4);
+      border-radius: 16px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-section {
+      padding: 80px 40px;
+      background: white;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .feature-grid-dark {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 40px;
+      color: white;
+    }
+
+    .feature-grid-dark h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .feature-grid-dark .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-item-dark {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .feature-item-dark .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .feature-item-dark p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    .feature-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+
+    .feature-text p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    /* ── INDUSTRY SELECTOR ── */
+    .industry-section {
+      padding: 80px 40px;
+      background: white;
+      text-align: center;
+    }
+
+    .industry-intro {
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .industry-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+
+    .industry-intro p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .industry-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .industry-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .industry-card.active {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(15, 155, 168, 0.05), rgba(15, 155, 168, 0.02));
+    }
+
+    .industry-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      background: #E8F4F5;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .industry-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .industry-card p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      padding: 80px 40px;
+      background: #F5F3F0;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .pricing-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .pricing-header p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pricing-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, #F5F3F0, #FAFAF8);
+      transform: scale(1.05);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-tier {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .pricing-note {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      font-size: 14px;
+      color: var(--text-dark);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features li.disabled {
+      color: #ccc;
+    }
+
+    .pricing-btn {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pricing-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .pricing-btn.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .pricing-btn.secondary {
+      background: transparent;
+      color: var(--text-dark);
+      border: 2px solid var(--text-dark);
+    }
+
+    .pricing-btn.secondary:hover {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 80px 40px;
+      background: white;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--navy);
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary);
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: #F9F7F4;
+    }
+
+    .faq-toggle {
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px 24px;
+      background: #F9F7F4;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--navy);
+      color: white;
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0D1218;
+      color: rgba(255,255,255,0.5);
+      padding: 40px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 20px;
+      }
+
+      nav {
+        gap: 20px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .what-is-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 20px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .industry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .faq-section {
+        padding: 60px 20px;
+      }
+
+      .final-cta {
+        padding: 60px 20px;
+      }
+
+      .final-cta h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">LI Boost Kit</div>
+  <nav>
+    <a href="#what">What is it</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <button class="get-started-btn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="trust-badge">
+    <span class="stars">★★★★★</span>
+    Built by a Long Beach Local, Invested in the Community
+  </div>
+  <h1>Marketing made <span class="highlight">simple</span></h1>
+  <p>Interactive toolkits, customizable for your Long Island business. Start reaching more customers and growing — starting at just $19.99.</p>
+  <div class="hero-buttons">
+    <button class="btn btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Start Learning →</button>
+    <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">See Plans</button>
+  </div>
+  <div class="hero-features">
+    <div class="feature-item">✓ One-time purchase</div>
+    <div class="feature-item">✓ No subscription</div>
+    <div class="feature-item">✓ Instant access</div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="value-props">
+  <h2 class="section-title">Built for growth</h2>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">📊</div>
+      <h3>Real Results</h3>
+      <p>Proven frameworks designed for small businesses to grow their customer base.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">✓</div>
+      <h3>Done-For-You Structure</h3>
+      <p>Checklists, templates, and systems so you're never starting from scratch.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚙</div>
+      <h3>Fully Customizable</h3>
+      <p>Tailor every section to your business, industry, and local market.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⏱</div>
+      <h3>Hours Not Months</h3>
+      <p>Get your marketing plan in place this week, not someday.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section id="what" class="what-is-section">
+  <div class="what-is-content">
+    <h2>You're in control. We just guide you.</h2>
+    <p>The Long Island Boost Kit is an <span class="what-is-highlight">interactive marketing toolkit</span> built specifically for small businesses. It's not a course you sit through. It's not another PDF you'll never finish.</p>
+    <p>It's <span class="what-is-highlight">structure, organization, ideas, templates, and checklists</span> — all inside one easy-to-use platform. Every section is customizable to your specific business.</p>
+    <p>Work through it at your own pace. Save your progress. Update your answers anytime. Everything you build stays private and organized in one place.</p>
+  </div>
+  <div class="what-is-image">
+    <img src="homepage_hero_image.jpg" alt="Marketing toolkit dashboard" style="width:100%;height:100%;object-fit:contain;border-radius:12px;">
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-grid">
+    <div class="feature-grid-dark">
+      <h3>Nine Complete Sections</h3>
+      <div class="grid">
+        <div class="feature-item-dark">
+          <div class="icon">📊</div>
+          <p>Marketing Foundation</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">🌐</div>
+          <p>Digital Presence</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">📱</div>
+          <p>Social Media Playbook</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">📺</div>
+          <p>Paid Media Basics</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">⚠️</div>
+          <p>Common Mistakes</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">📅</div>
+          <p>30-Day Launch Plan</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">🎯</div>
+          <p>Marketing Command Center</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">📧</div>
+          <p>Lead Capture System</p>
+        </div>
+        <div class="feature-item-dark">
+          <div class="icon">📊</div>
+          <p>Post-Event Survey</p>
+        </div>
+      </div>
+    </div>
+    <div class="feature-text">
+      <h3>Everything you need to launch</h3>
+      <p>From your customer profile to your 30-day marketing plan, we've mapped out exactly what matters. Each section builds on the last, giving you clarity and direction without overwhelming you.</p>
+      <p>The kits include <strong>nine complete sections</strong> covering everything from your positioning statement to your lead capture system. Choose the tier that fits your needs and get started immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY SELECTOR -->
+<section class="industry-section" id="industry">
+  <div class="industry-intro">
+    <h2>What's Your Industry?</h2>
+    <p>Choose your industry to get a marketing kit tailored to your business.</p>
+  </div>
+  <div class="industry-grid">
+    <div class="industry-card" onclick="selectIndustry(this, 'restaurant')">
+      <div class="industry-icon">
+        <img src="industry-icons.png" alt="Restaurants" style="width:48px;height:48px;object-position:0 0;object-fit:contain;">
+      </div>
+      <h3>Restaurants</h3>
+      <p>Cafés, bars, food trucks & dining spots</p>
+    </div>
+    <div class="industry-card" onclick="selectIndustry(this, 'construction')">
+      <div class="industry-icon">
+        <img src="industry-icons.png" alt="Construction" style="width:48px;height:48px;object-position:33% 0;object-fit:contain;">
+      </div>
+      <h3>Construction & Home Services</h3>
+      <p>Contractors, plumbers, electricians & more</p>
+    </div>
+    <div class="industry-card" onclick="selectIndustry(this, 'gym')">
+      <div class="industry-icon">
+        <img src="industry-icons.png" alt="Gyms" style="width:48px;height:48px;object-position:66% 0;object-fit:contain;">
+      </div>
+      <h3>Gyms, Trainers & Wellness</h3>
+      <p>Fitness studios, personal trainers & wellness pros</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+  <div class="pricing-header">
+    <h2 id="pricing-title">Plans for Restaurants</h2>
+    <p>One-time purchase. Everything saves in your browser. No subscriptions, no surprise charges.</p>
+  </div>
+  <div class="pricing-grid" id="pricing-grid">
+    <!-- Pricing cards will be inserted here by JavaScript -->
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Questions</h2>
+    <div id="faq-list">
+      <!-- FAQ items will be inserted here by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to grow your business?</h2>
+  <p>Join dozens of Long Island businesses already using the Boost Kit to simplify their marketing.</p>
+  <button class="btn btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started Now →</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Long Island Boost Kit. Built for small businesses by small business owners.</p>
+  <p><a href="#">Terms of Service</a> | <a href="#">Privacy</a></p>
+</footer>
+
+<script>
+const pricingData = {
+  restaurant: {
+    title: 'Plans for Restaurants',
+    tiers: [
+      {
+        name: 'STARTER',
+        price: '$19.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Marketing Foundation', included: true },
+          { text: 'Digital Presence Checklist', included: true },
+          { text: 'Social Media Playbook', included: true },
+          { text: '30-Day Launch Plan', included: true },
+          { text: 'Light mode only', included: true },
+          { text: 'Dark Mode', included: false },
+          { text: 'Metrics Dashboard', included: false },
+          { text: 'AI Features', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-starter-restaurant'
+      },
+      {
+        name: 'GROWTH',
+        price: '$49.99',
+        note: 'One-time purchase • Most popular',
+        features: [
+          { text: 'Everything from Starter, plus:', included: true },
+          { text: 'All 9 Sections', included: true },
+          { text: 'Dark Mode', included: true },
+          { text: 'Logo Upload', included: true },
+          { text: 'Metrics Dashboard', included: true },
+          { text: 'Command Center', included: true },
+          { text: 'Lead & Event Systems', included: true },
+          { text: 'AI Features', included: false }
+        ],
+        featured: true,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-growth-restaurant'
+      },
+      {
+        name: 'FULL SETUP',
+        price: '$99.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Everything from Growth, plus:', included: true },
+          { text: 'AI Business Lookup', included: true },
+          { text: 'AI Metrics Analysis', included: true },
+          { text: 'Personalized AI Prompts', included: true },
+          { text: 'Priority Support', included: true },
+          { text: ' ', included: false },
+          { text: ' ', included: false },
+          { text: ' ', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-full-restaurant'
+      }
+    ]
+  },
+  construction: {
+    title: 'Plans for Construction & Home Services',
+    tiers: [
+      {
+        name: 'STARTER',
+        price: '$19.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Marketing Foundation', included: true },
+          { text: 'Digital Presence Checklist', included: true },
+          { text: 'Social Media Playbook', included: true },
+          { text: '30-Day Launch Plan', included: true },
+          { text: 'Light mode only', included: true },
+          { text: 'Dark Mode', included: false },
+          { text: 'Metrics Dashboard', included: false },
+          { text: 'AI Features', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-starter-construction'
+      },
+      {
+        name: 'GROWTH',
+        price: '$49.99',
+        note: 'One-time purchase • Most popular',
+        features: [
+          { text: 'Everything from Starter, plus:', included: true },
+          { text: 'All 9 Sections', included: true },
+          { text: 'Dark Mode', included: true },
+          { text: 'Logo Upload', included: true },
+          { text: 'Metrics Dashboard', included: true },
+          { text: 'Command Center', included: true },
+          { text: 'Lead & Event Systems', included: true },
+          { text: 'AI Features', included: false }
+        ],
+        featured: true,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-growth-construction'
+      },
+      {
+        name: 'FULL SETUP',
+        price: '$99.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Everything from Growth, plus:', included: true },
+          { text: 'AI Business Lookup', included: true },
+          { text: 'AI Metrics Analysis', included: true },
+          { text: 'Personalized AI Prompts', included: true },
+          { text: 'Priority Support', included: true },
+          { text: ' ', included: false },
+          { text: ' ', included: false },
+          { text: ' ', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-full-construction'
+      }
+    ]
+  },
+  gym: {
+    title: 'Plans for Gyms, Trainers & Wellness',
+    tiers: [
+      {
+        name: 'STARTER',
+        price: '$19.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Marketing Foundation', included: true },
+          { text: 'Digital Presence Checklist', included: true },
+          { text: 'Social Media Playbook', included: true },
+          { text: '30-Day Launch Plan', included: true },
+          { text: 'Light mode only', included: true },
+          { text: 'Dark Mode', included: false },
+          { text: 'Metrics Dashboard', included: false },
+          { text: 'AI Features', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-starter-gym'
+      },
+      {
+        name: 'GROWTH',
+        price: '$49.99',
+        note: 'One-time purchase • Most popular',
+        features: [
+          { text: 'Everything from Starter, plus:', included: true },
+          { text: 'All 9 Sections', included: true },
+          { text: 'Dark Mode', included: true },
+          { text: 'Logo Upload', included: true },
+          { text: 'Metrics Dashboard', included: true },
+          { text: 'Command Center', included: true },
+          { text: 'Lead & Event Systems', included: true },
+          { text: 'AI Features', included: false }
+        ],
+        featured: true,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-growth-gym'
+      },
+      {
+        name: 'FULL SETUP',
+        price: '$99.99',
+        note: 'One-time purchase',
+        features: [
+          { text: 'Everything from Growth, plus:', included: true },
+          { text: 'AI Business Lookup', included: true },
+          { text: 'AI Metrics Analysis', included: true },
+          { text: 'Personalized AI Prompts', included: true },
+          { text: 'Priority Support', included: true },
+          { text: ' ', included: false },
+          { text: ' ', included: false },
+          { text: ' ', included: false }
+        ],
+        featured: false,
+        buttonText: 'Get Started',
+        gumroad: 'https://gumroad.com/l/li-boost-kit-full-gym'
+      }
+    ]
+  }
+};
+
+const faqData = [
+  {
+    q: "What do I need to get started?",
+    a: "Just a device with a web browser and 30 minutes to work through the first section. Everything saves automatically in your browser, so you can close and return anytime. Important: if you clear your browser cache or cookies, you'll lose all your saved progress. We recommend taking screenshots of completed sections and copying key information as you work through the kit."
+  },
+  {
+    q: "Can I work through this at my own pace?",
+    a: "Absolutely. Each section is independent. Complete them in order or skip around. Your progress is saved automatically, so you can pick up where you left off anytime."
+  },
+  {
+    q: "How do the AI features work (Full Setup only)?",
+    a: "The Full Setup plan includes AI-powered tools that run on your own free Anthropic API account. We guide you through a simple 5-minute setup. Cost is minimal — usually less than $1 per month. You'll need to supply your own API key, which gives you complete control and privacy."
+  },
+  {
+    q: "How do I set up the API key?",
+    a: "When you purchase the Full Setup, you'll get step-by-step instructions to create your free Anthropic account and generate an API key. It takes about 5 minutes. Your key is stored only in your browser — we never see it or store it on our servers."
+  },
+  {
+    q: "Can I use this on multiple devices?",
+    a: "No. Your progress and data are saved locally in your browser on each device. If you start on your laptop, that work stays on your laptop. If you switch to your phone, you're starting fresh. We recommend choosing one primary device and sticking with it. (This is why we offer all three tiers as downloadable kits — you have full control.)"
+  },
+  {
+    q: "Can I export my work or back it up?",
+    a: "Currently, your data stays in your browser. We recommend taking screenshots of important sections or copying key text as you go if you want a backup."
+  },
+  {
+    q: "Is there a refund or satisfaction guarantee?",
+    a: "We stand behind the quality of the kit. If you have a specific issue or concern, reach out to us — we're happy to help troubleshoot. But we don't offer refunds on digital products once purchased due to piracy risks."
+  },
+  {
+    q: "Can I use this for a different industry?",
+    a: "Currently, we offer kits built specifically for Restaurants, Construction & Home Services, and Gym/Fitness/Wellness. Each is tailored to that industry's unique marketing challenges. Let us know if you have a different use case — we're considering expanding."
+  },
+  {
+    q: "How long does it take to complete?",
+    a: "Most users spend 2–4 hours working through all sections, depending on depth. You don't have to do it all at once — sections are designed to be completed in 20–30 minute chunks."
+  },
+  {
+    q: "Is my data private?",
+    a: "Yes. Everything stays in your browser on your device. We don't collect, store, or access any of your business data. The only exception is if you use the Full Setup's AI features — your API key remains in your browser only."
+  }
+];
+
+function selectIndustry(element, industry) {
+  document.querySelectorAll('.industry-card').forEach(card => card.classList.remove('active'));
+  element.classList.add('active');
+  renderPricing(industry);
+}
+
+function renderPricing(industry) {
+  const data = pricingData[industry];
+  document.getElementById('pricing-title').textContent = data.title;
+  
+  const grid = document.getElementById('pricing-grid');
+  grid.innerHTML = '';
+  
+  data.tiers.forEach(tier => {
+    const card = document.createElement('div');
+    card.className = `pricing-card ${tier.featured ? 'featured' : ''}`;
+    
+    let html = '';
+    if (tier.featured) {
+      html += `<div class="pricing-badge">Most Popular</div>`;
+    }
+    
+    html += `
+      <div class="pricing-tier">${tier.name}</div>
+      <div class="pricing-price">${tier.price}</div>
+      <div class="pricing-note">${tier.note}</div>
+      <ul class="pricing-features">
+        ${tier.features.map(f => `
+          <li ${!f.included ? 'class="disabled"' : ''}>
+            ${f.included ? '✓' : '✗'} ${f.text}
+          </li>
+        `).join('')}
+      </ul>
+      <button class="pricing-btn ${tier.featured ? 'primary' : 'secondary'}" onclick="window.open('${tier.gumroad}', '_blank')">
+        ${tier.buttonText} →
+      </button>
+    `;
+    
+    card.innerHTML = html;
+    grid.appendChild(card);
+  });
+}
+
+function renderFAQ() {
+  const faqList = document.getElementById('faq-list');
+  faqList.innerHTML = faqData.map((faq, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-question" onclick="toggleFaq(${i})">
+        <span>${faq.q}</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">${faq.a}</div>
+    </div>
+  `).join('');
+}
+
+function toggleFaq(index) {
+  const item = document.getElementById(`faq-${index}`);
+  item.classList.toggle('open');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  renderPricing('restaurant');
+  renderFAQ();
+  
+  // Set first industry as active
+  document.querySelector('.industry-card').classList.add('active');
+});
+</script>
+
+</body>
+</html>
