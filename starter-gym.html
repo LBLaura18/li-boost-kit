@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LB Launch Kit — Gym, Fitness & Wellness Edition ✦ Starter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg:        #F7F5F0;
+  --bg2:       #FFFFFF;
+  --bg3:       #EFEDE8;
+  --sidebar:   #0F1F2E;
+  --sidebar2:  #162B3E;
+  --border:    #E5E1D8;
+  --border2:   #D4CFC4;
+  --text1:     #1A1614;
+  --text2:     #4A4540;
+  --text3:     #8A8278;
+  --accent:    #C8973A;
+  --accent2:   #E8B45A;
+  --teal:      #1A7A8A;
+  --teal2:     #2A9AAC;
+  --teal-pale: #EAF6F8;
+  --navy:      #0F1F2E;
+  --success:   #2D7A5F;
+  --danger:    #C0392B;
+  --warn:      #C8973A;
+  --shadow:    0 4px 24px rgba(15,31,46,0.07);
+  --shadow-lg: 0 12px 48px rgba(15,31,46,0.12);
+  --r:         14px;
+  --r-sm:      8px;
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text1);min-height:100vh;font-size:15px;line-height:1.6;transition:background var(--transition),color var(--transition)}
+
+/* ── SIDEBAR ── */
+#sidebar{
+  position:fixed;top:0;left:0;width:272px;height:100vh;
+  background:var(--sidebar);
+  display:flex;flex-direction:column;z-index:100;
+  transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  overflow:hidden;
+}
+
+.sidebar-glow{
+  position:absolute;top:-80px;left:-80px;width:260px;height:260px;
+  background:radial-gradient(circle,rgba(200,151,58,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+#sidebar-top{
+  padding:28px 24px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:relative;
+}
+
+.kit-wordmark{
+  display:flex;align-items:center;gap:10px;margin-bottom:6px;
+}
+
+.kit-logo-circle{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;flex-shrink:0;
+  box-shadow:0 2px 12px rgba(200,151,58,0.35);
+}
+
+.kit-name{
+  font-family:'Playfair Display',serif;
+  color:#fff;font-size:17px;line-height:1.2;font-weight:700;
+  letter-spacing:-0.01em;
+}
+
+.kit-tier{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(200,151,58,0.15);
+  border:1px solid rgba(200,151,58,0.3);
+  border-radius:99px;padding:3px 10px;
+  font-size:10px;font-weight:600;color:var(--accent2);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* Progress */
+#prog-wrap{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.prog-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);font-weight:600;margin-bottom:10px}
+.prog-track{height:3px;background:rgba(255,255,255,0.08);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.6s cubic-bezier(0.4,0,0.2,1)}
+.prog-nums{display:flex;justify-content:space-between;margin-top:8px}
+.prog-count{font-size:13px;font-weight:600;color:#fff}
+.prog-pct{font-size:13px;color:rgba(255,255,255,0.4)}
+
+/* Nav */
+#nav{list-style:none;padding:10px 0;flex:1;overflow-y:auto}
+#nav::-webkit-scrollbar{width:3px}
+#nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:99px}
+
+.nav-group-label{
+  padding:14px 24px 6px;
+  font-size:9px;text-transform:uppercase;letter-spacing:0.12em;
+  color:rgba(255,255,255,0.25);font-weight:600;
+}
+
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 24px;cursor:pointer;
+  border-left:2px solid transparent;
+  transition:all var(--transition);
+  position:relative;
+}
+.nav-item:hover{background:rgba(255,255,255,0.04);border-left-color:rgba(255,255,255,0.15)}
+.nav-item.active{background:rgba(200,151,58,0.1);border-left-color:var(--accent)}
+
+.nav-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.15);flex-shrink:0;
+  transition:all var(--transition);
+}
+.nav-item.active .nav-dot{background:var(--accent);box-shadow:0 0 8px rgba(200,151,58,0.5)}
+.nav-item.done .nav-dot{background:var(--success)}
+
+.nav-check{
+  width:18px;height:18px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.15);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:9px;transition:all var(--transition);
+}
+.nav-item.done .nav-check{background:var(--success);border-color:var(--success);color:#fff}
+.nav-item.active .nav-check{border-color:var(--accent)}
+
+.nav-label{font-size:12.5px;color:rgba(255,255,255,0.5);font-weight:400;transition:color var(--transition);line-height:1.3}
+.nav-item.active .nav-label,.nav-item:hover .nav-label{color:rgba(255,255,255,0.85)}
+.nav-item.done .nav-label{color:rgba(255,255,255,0.4)}
+
+/* Sidebar footer */
+#sidebar-foot{
+  padding:16px 24px;border-top:1px solid rgba(255,255,255,0.06);
+}
+.biz-thumb{
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
+}
+.biz-logo-sm{
+  width:32px;height:32px;border-radius:8px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;overflow:hidden;flex-shrink:0;
+}
+.biz-logo-sm img{width:100%;height:100%;object-fit:cover}
+.biz-label{font-size:10px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:2px}
+.biz-val{font-size:13px;color:rgba(255,255,255,0.7);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+
+.sidebar-controls{display:flex;gap:8px}
+.ctrl-btn{
+  flex:1;padding:7px 10px;border-radius:var(--r-sm);
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.04);
+  color:rgba(255,255,255,0.5);font-size:11px;font-weight:500;
+  cursor:pointer;font-family:'Outfit',sans-serif;
+  transition:all var(--transition);text-align:center;
+}
+.ctrl-btn:hover{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8)}
+.ctrl-btn.active-ctrl{background:rgba(200,151,58,0.15);border-color:rgba(200,151,58,0.3);color:var(--accent2)}
+
+/* ── MAIN ── */
+#main{margin-left:272px;min-height:100vh;transition:margin 0.3s cubic-bezier(0.4,0,0.2,1)}
+
+/* ── TOPBAR ── */
+#topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,245,240,0.85);
+  backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  padding:12px 20px;height:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background var(--transition);
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.topbar-left{display:flex;align-items:center;gap:10px;min-width:0}
+.topbar-crumb{font-size:12px;color:var(--text3)}
+.topbar-sep{color:var(--border2)}
+.topbar-title{font-family:'Outfit',sans-serif;font-size:14px;color:var(--text1);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.topbar-right{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
+.tb-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:6px 12px;border-radius:var(--r-sm);
+  font-size:11px;font-weight:600;cursor:pointer;
+  border:1px solid var(--border);background:var(--bg2);
+  color:var(--text2);font-family:'Outfit',sans-serif;
+  transition:all var(--transition);white-space:nowrap;
+}
+.tb-btn:hover{border-color:var(--border2);color:var(--text1);background:var(--bg3)}
+.tb-btn.accent{background:var(--accent);border-color:var(--accent);color:#fff}
+.tb-btn.accent:hover{background:var(--accent2);border-color:var(--accent2)}
+.tb-btn.teal{background:var(--teal);border-color:var(--teal);color:#fff}
+.tb-btn.teal:hover{background:var(--teal2)}
+
+/* ── PAGES ── */
+.page{display:none;padding:36px 40px 60px;max-width:900px;animation:fadeUp 0.3s ease}
+.page.active{display:block}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION HEADER ── */
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--teal);font-weight:700;margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:30px;color:var(--text1);line-height:1.15;
+  margin-bottom:10px;font-weight:700;letter-spacing:-0.02em;
+}
+.sec-desc{font-size:14px;color:var(--text2);max-width:580px;line-height:1.75;margin-bottom:28px}
+.sec-divider{height:1px;background:var(--border);margin-bottom:28px}
+
+/* ── CARDS ── */
+.card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);margin-bottom:18px;
+  box-shadow:var(--shadow);overflow:hidden;
+  transition:border-color var(--transition),box-shadow var(--transition);
+}
+.card:hover{border-color:var(--border2)}
+
+.card-head{
+  padding:16px 22px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg3);
+}
+.card-icon{font-size:18px}
+.card-title{font-weight:700;font-size:14px;color:var(--text1)}
+.card-body{padding:22px}
+
+/* ── FORM ELEMENTS ── */
+.field{margin-bottom:18px}
+.field-label{
+  display:block;font-size:12px;font-weight:600;
+  color:var(--text2);margin-bottom:6px;
+  text-transform:uppercase;letter-spacing:0.06em;
+}
+.field-hint{font-size:12px;color:var(--text3);margin-bottom:6px;font-style:italic}
+
+input[type=text],input[type=email],input[type=password],textarea,select{
+  width:100%;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:var(--r-sm);
+  font-family:'Outfit',sans-serif;font-size:14px;
+  color:var(--text1);background:var(--bg2);
+  transition:border-color var(--transition),box-shadow var(--transition),background var(--transition);
+  outline:none;
+}
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus,textarea:focus,select:focus{
+  border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,138,0.12);
+}
+textarea{resize:vertical;min-height:80px}
+select option{background:var(--bg2);color:var(--text1)}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;border-radius:var(--r-sm);
+  font-size:13px;font-weight:600;cursor:pointer;border:none;
+  font-family:'Outfit',sans-serif;transition:all var(--transition);
+}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--sidebar2)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent2)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal2)}
+.btn-ghost{background:transparent;color:var(--text2);border:1.5px solid var(--border)}
+.btn-ghost:hover{background:var(--bg3);color:var(--text1)}
+.btn-success{background:var(--success);color:#fff;cursor:default}
+.btn-sm{padding:7px 14px;font-size:12px}
+.btn-lg{padding:13px 28px;font-size:14px}
+
+/* ── CALLOUTS ── */
+.callout{border-radius:var(--r);padding:18px 20px;margin:14px 0}
+.callout-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px}
+.callout p,.callout-body{font-size:13px;line-height:1.7}
+
+.callout-gold{background:rgba(200,151,58,0.08);border:1px solid rgba(200,151,58,0.25)}
+.callout-gold .callout-title{color:var(--accent)}
+
+.callout-teal{background:var(--teal-pale);border:1px solid rgba(26,122,138,0.2)}
+.callout-teal .callout-title{color:var(--teal)}
+
+.callout-dark{background:var(--navy);border:1px solid rgba(255,255,255,0.06)}
+.callout-dark .callout-title{color:rgba(255,255,255,0.5)}
+.callout-dark p,.callout-dark .callout-body{color:rgba(255,255,255,0.75)}
+
+.callout-warn{background:rgba(200,151,58,0.06);border-left:3px solid var(--accent)}
+.callout-warn .callout-title{color:var(--accent)}
+
+/* ── VOICE TAGS ── */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tag{
+  padding:6px 14px;border-radius:99px;
+  border:1.5px solid var(--border);font-size:12.5px;
+  cursor:pointer;transition:all var(--transition);
+  background:var(--bg2);color:var(--text2);
+  font-family:'Outfit',sans-serif;font-weight:500;
+}
+.tag:hover{border-color:var(--border2);color:var(--text1)}
+.tag.sel-pos{background:var(--navy);border-color:var(--navy);color:#fff}
+.tag.sel-neg{background:#7F1D1D;border-color:#7F1D1D;color:#fff}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none}
+.check-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:13px 0;border-bottom:1px solid var(--border);
+  cursor:pointer;transition:opacity var(--transition);
+}
+.check-item:last-child{border-bottom:none}
+.check-box{
+  width:20px;height:20px;border-radius:6px;
+  border:2px solid var(--border2);flex-shrink:0;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;transition:all var(--transition);color:transparent;
+}
+.check-item.checked .check-box{background:var(--success);border-color:var(--success);color:#fff}
+.check-title{font-size:14px;font-weight:500;color:var(--text1);transition:all var(--transition)}
+.check-desc{font-size:12px;color:var(--text3);margin-top:3px;line-height:1.5}
+.check-item.checked .check-title{text-decoration:line-through;color:var(--text3)}
+
+.score-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--navy);color:#fff;
+  border-radius:var(--r-sm);padding:8px 16px;
+  font-size:13px;font-weight:600;margin-top:14px;
+}
+
+/* ── COMPLETE SECTION ── */
+.complete-row{
+  display:flex;align-items:center;gap:14px;
+  margin-top:28px;padding-top:22px;border-top:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.next-link{
+  font-size:13px;color:var(--teal);font-weight:600;
+  cursor:pointer;text-decoration:underline;text-underline-offset:3px;
+  background:none;border:none;font-family:'Outfit',sans-serif;
+}
+
+/* ── DASHBOARD ── */
+.dash-hero{
+  background:linear-gradient(135deg,var(--navy) 0%,#1a3a55 40%,#0d2535 100%);
+  border-radius:20px;padding:40px;margin-bottom:28px;
+  position:relative;overflow:hidden;
+  box-shadow:0 16px 64px rgba(15,31,46,0.25);
+}
+.dash-hero::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,151,58,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.dash-hero::after{
+  content:'';position:absolute;bottom:-80px;left:30%;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,122,138,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.dash-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(200,151,58,0.15);border:1px solid rgba(200,151,58,0.3);
+  border-radius:99px;padding:4px 12px;
+  font-size:10px;font-weight:700;color:var(--accent2);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;
+}
+.dash-headline{
+  font-family:'Playfair Display',serif;
+  font-size:34px;color:#fff;line-height:1.1;
+  margin-bottom:12px;font-weight:700;letter-spacing:-0.02em;
+}
+.dash-sub{color:rgba(255,255,255,0.55);font-size:14px;max-width:500px;line-height:1.7;margin-bottom:24px}
+.dash-biz-display{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:10px 16px;
+}
+.dash-biz-logo{width:28px;height:28px;border-radius:6px;overflow:hidden;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px}
+.dash-biz-logo img{width:100%;height:100%;object-fit:cover}
+.dash-biz-name{font-size:14px;font-weight:600;color:#fff}
+.dash-biz-empty{font-size:13px;color:rgba(255,255,255,0.4);font-style:italic}
+
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
+.stat-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px;
+  box-shadow:var(--shadow);
+}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);font-weight:600;margin-bottom:8px}
+.stat-val{font-family:'Playfair Display',serif;font-size:26px;color:var(--text1);margin-bottom:3px}
+.stat-note{font-size:11px;color:var(--text3)}
+.stat-card.gold{border-color:rgba(200,151,58,0.3);background:rgba(200,151,58,0.04)}
+.stat-card.gold .stat-val{color:var(--accent)}
+
+.section-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.sec-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 20px;
+  cursor:pointer;transition:all var(--transition);
+  display:flex;align-items:center;gap:14px;
+  box-shadow:0 2px 8px rgba(15,31,46,0.04);
+}
+.sec-card:hover{border-color:var(--teal);box-shadow:var(--shadow);transform:translateY(-2px)}
+.sec-card.done{border-color:rgba(45,122,95,0.4)}
+.sec-icon{width:42px;height:42px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sec-card.done .sec-icon{background:#ECFDF5}
+.sec-num{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);font-weight:600}
+.sec-name{font-weight:600;font-size:13.5px;color:var(--text1);margin:2px 0}
+.sec-status{font-size:11px;color:var(--text3)}
+.sec-status.done{color:var(--success);font-weight:500}
+.sec-arrow{color:var(--border2);font-size:14px;margin-left:auto}
+
+/* ── MOBILE ── */
+#mob-toggle{
+  display:none;position:fixed;top:14px;left:14px;z-index:200;
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  width:40px;height:40px;font-size:18px;cursor:pointer;
+  align-items:center;justify-content:center;
+}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+
+@media(max-width:900px){
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0)}
+  #main{margin-left:0}
+  #topbar{padding:10px 16px;gap:8px}
+  .topbar-left{flex:1;min-width:0}
+  .topbar-crumb{display:none}
+  .topbar-sep{display:none}
+  .topbar-title{font-size:13px}
+  .topbar-right{gap:4px}
+  .tb-btn{padding:5px 10px;font-size:10px}
+  .page{padding:24px 20px 50px}
+  .stat-grid{grid-template-columns:1fr}
+  .section-grid{grid-template-columns:1fr}
+  .dash-headline{font-size:24px}
+  #mob-toggle{display:flex}
+  #overlay.open{display:block}
+}
+</style>
+</head>
+<body>
+
+<button id="mob-toggle" onclick="toggleSidebar()">☰</button>
+<div id="overlay" onclick="closeSidebar()"></div>
+
+<!-- ══ SIDEBAR ══ -->
+<nav id="sidebar">
+  <div class="sidebar-glow"></div>
+
+  <div id="sidebar-top">
+    <div class="kit-wordmark">
+      <div class="kit-logo-circle">🏖️</div>
+      <div class="kit-name">LB Launch Kit</div>
+    </div>
+    <div class="kit-tier">✦ Starter — Gym, Fitness & Wellness Edition</div>
+  </div>
+
+  <div id="prog-wrap">
+    <div class="prog-label">Your Progress</div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="prog-nums">
+      <span class="prog-count" id="prog-count">0 of 4 complete</span>
+      <span class="prog-pct" id="prog-pct">0%</span>
+    </div>
+  </div>
+
+  <ul id="nav">
+    <li class="nav-group-label">Overview</li>
+    <li class="nav-item active" onclick="show('dashboard')">
+      <div class="nav-dot"></div>
+      <span class="nav-label">Dashboard</span>
+    </li>
+
+    <li class="nav-group-label">The Kit</li>
+    <li class="nav-item" onclick="show('s1')">
+      <div class="nav-check" id="nc-s1"></div>
+      <span class="nav-label">1. Marketing Foundation</span>
+    </li>
+    <li class="nav-item" onclick="show('s2')">
+      <div class="nav-check" id="nc-s2"></div>
+      <span class="nav-label">2. Digital Presence</span>
+    </li>
+    <li class="nav-item" onclick="show('s3')">
+      <div class="nav-check" id="nc-s3"></div>
+      <span class="nav-label">3. Social Playbook</span>
+    </li>
+    <li class="nav-item" onclick="show('s6')">
+      <div class="nav-check" id="nc-s6"></div>
+      <span class="nav-label">6. 30-Day Plan</span>
+    </li>
+  </ul>
+
+  <div id="sidebar-foot">
+    <div class="biz-thumb">
+      <div class="biz-logo-sm" id="sb-logo">🍽️</div>
+      <div>
+        <div class="biz-label">Your Business</div>
+        <div class="biz-val" id="sb-biz-name">Not set yet</div>
+      </div>
+    </div>
+    <div class="sidebar-controls">
+      <button class="ctrl-btn" onclick="resetAll()">↺ Reset</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<div id="main">
+
+  <!-- TOPBAR -->
+  <div id="topbar">
+    <div class="topbar-left">
+      <span class="topbar-title" id="topbar-title">Dashboard</span>
+    </div>
+    <div class="topbar-right">
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD ══ -->
+  <div id="page-dashboard" class="page active">
+
+    <div class="dash-hero">
+      <div class="dash-tag">✦ Starter — Gym, Fitness & Wellness Edition</div>
+      <div class="dash-headline" id="dash-headline">Your marketing<br>starts here.</div>
+      <div class="dash-sub">Work through each section at your own pace. Everything saves automatically in your browser — close and return anytime.</div>
+      <div class="dash-biz-display">
+        <div class="dash-biz-logo" id="dash-logo">🍽️</div>
+        <div>
+          <div class="dash-biz-name" id="dash-biz">Set up your business in Section 1 →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card gold">
+        <div class="stat-label">Sections Complete</div>
+        <div class="stat-val" id="stat-complete">0/4</div>
+        <div class="stat-note">Keep going</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Items Checked Off</div>
+        <div class="stat-val" id="stat-checks">0</div>
+        <div class="stat-note">Total checklist items</div>
+      </div>
+    </div>
+
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);font-weight:600;margin-bottom:14px;">All Sections</div>
+    <div class="section-grid">
+      <div class="sec-card" id="card-s1" onclick="show('s1')"><div class="sec-icon">🎯</div><div><div class="sec-num">Section 1</div><div class="sec-name">Marketing Foundation</div><div class="sec-status" id="st-s1">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s2" onclick="show('s2')"><div class="sec-icon">🌐</div><div><div class="sec-num">Section 2</div><div class="sec-name">Digital Presence</div><div class="sec-status" id="st-s2">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s3" onclick="show('s3')"><div class="sec-icon">📱</div><div><div class="sec-num">Section 3</div><div class="sec-name">Social Media Playbook</div><div class="sec-status" id="st-s3">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s6" onclick="show('s6')"><div class="sec-icon">🗓️</div><div><div class="sec-num">Section 6</div><div class="sec-name">30-Day Launch Plan</div><div class="sec-status" id="st-s6">Not started</div></div><div class="sec-arrow">›</div></div>
+    </div>
+
+    <div class="callout callout-gold" style="margin-top:20px">
+      <div class="callout-title">📍 Built for Long Beach, NY</div>
+      <p>Every section reflects Long Beach's seasonal rhythms, community character, and local market. The content calendar, hashtag guide, and seasonal hooks are specific to your backyard.</p>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 1 ══ -->
+  <div id="page-s1" class="page">
+    <div class="sec-eyebrow">Section 1</div>
+    <div class="sec-title">Your Marketing Foundation</div>
+    <div class="sec-desc">Before you post anything, you need to know who you're talking to, what makes you different, and how you want to sound. Everything else builds on what you define here.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><div class="card-title">1A. Business Profile</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Business Name</label>
+          <input type="text" id="f-biz-name" placeholder="e.g. The Long Beach Grille" oninput="sf('biz-name')">
+        </div>
+        <div class="field">
+          <label class="field-label">Instagram Handle</label>
+          <input type="text" id="f-ig-handle" placeholder="@yourbusiness" oninput="sf('ig-handle')">
+        </div>
+        <div class="field">
+          <label class="field-label">Your restaurant in one sentence</label>
+          <div class="field-hint">What are you? Be specific — not "great food" but your actual type and vibe.</div>
+          <textarea id="f-one-liner" placeholder="e.g. A casual Italian seafood restaurant on Long Beach serving house-made pasta and locally-caught fish since 2018." oninput="sf('one-liner')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">👥</span><div class="card-title">1B. Customer Profile</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Who is your most common customer right now?</label>
+          <div class="field-hint">Age range, who they come with, how often, what they order</div>
+          <textarea id="f-cust-common" placeholder="e.g. Locals in their 30s–50s, dinner 2–3x/month, usually couples or small groups, order seafood and a bottle of wine." oninput="sf('cust-common')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Who is your best customer?</label>
+          <div class="field-hint">The one who orders generously, tips well, comes back, tells friends</div>
+          <textarea id="f-cust-best" placeholder="e.g. Our regulars who've been coming for years and introduce us to their friends." oninput="sf('cust-best')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Who do you want more of?</label>
+          <textarea id="f-cust-want" placeholder="e.g. Summer tourists discovering Long Beach for the first time, and young couples looking for a date night spot." oninput="sf('cust-want')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">What problem does your restaurant solve for them?</label>
+          <textarea id="f-cust-problem" placeholder="e.g. We're the place Long Beach locals take out-of-town guests when they want to impress without being stuffy." oninput="sf('cust-problem')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">💡</span><div class="card-title">1C. Positioning Statement</div></div>
+      <div class="card-body">
+        <div class="callout callout-teal" style="margin-bottom:16px">
+          <div class="callout-title">Why This Matters</div>
+          <p>"Great food and great service" is not positioning. Every restaurant claims that. Positioning is the thing only you can say — it goes in your Instagram bio, Google Business Profile, and every email newsletter you send.</p>
+        </div>
+        <div class="field">
+          <label class="field-label">What do you do that no other Long Beach restaurant does, or does as well?</label>
+          <textarea id="f-pos-unique" placeholder="e.g. The only restaurant on the island serving authentic Sicilian recipes from a family cookbook dating back to 1952." oninput="sf('pos-unique')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Your Positioning Statement</label>
+          <div class="field-hint">[Name] is the place in Long Beach where [customer] comes when they want [experience] — because [only you can claim this].</div>
+          <textarea id="f-positioning" placeholder="Write your positioning statement here..." oninput="sf('positioning')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🗣️</span><div class="card-title">1D. Brand Voice</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Pick 3 words that describe how your restaurant sounds at its best</label>
+          <div class="tag-cloud" id="tags-positive">
+            <button class="tag" onclick="toggleTag(this,'pos')">Warm</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Friendly</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Local</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Honest</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Playful</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Casual</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Sophisticated</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Passionate</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Family-first</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Unpretentious</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Welcoming</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Bold</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Seasonal</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Community-focused</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Laid-back</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Pick 3 words you should NEVER sound like</label>
+          <div class="tag-cloud" id="tags-negative">
+            <button class="tag" onclick="toggleTag(this,'neg')">Salesy</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Corporate</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Desperate</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Formal</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Distant</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Generic</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Complicated</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Boastful</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Stiff</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s1" onclick="markDone('s1')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s2')">Next: Digital Presence →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2 ══ -->
+  <div id="page-s2" class="page">
+    <div class="sec-eyebrow">Section 2</div>
+    <div class="sec-title">Your Digital Presence Checklist</div>
+    <div class="sec-desc">Before creating a single piece of content, your digital house needs to be in order. Work through this once, completely. Check off items only when they're actually done.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🔍</span><div class="card-title">2A. Google Business Profile — Do This First</div></div>
+      <div class="card-body">
+        <div class="callout callout-gold" style="margin-bottom:14px">
+          <div class="callout-title">⚡ Highest Priority</div>
+          <p>Your Google Business Profile is your most valuable free digital real estate. It's what appears when someone searches your restaurant name or "restaurants in Long Beach." Most have it half-set-up or badly outdated.</p>
+        </div>
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'gbp1')"><div class="check-box">✓</div><div><div class="check-title">Claimed and verified at business.google.com</div><div class="check-desc">Google mails a postcard with a verification code to your address</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp2')"><div class="check-box">✓</div><div><div class="check-title">Business name matches your signage exactly — no keyword stuffing</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp3')"><div class="check-box">✓</div><div><div class="check-title">Address and phone are correct and consistent across all platforms</div><div class="check-desc">Inconsistencies hurt your search ranking</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp4')"><div class="check-box">✓</div><div><div class="check-title">Hours completely up to date including holiday hours</div><div class="check-desc">The #1 thing customers check and the #1 thing that's wrong</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp5')"><div class="check-box">✓</div><div><div class="check-title">Business category is specific (e.g. "Italian Restaurant" not "Restaurant")</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp6')"><div class="check-box">✓</div><div><div class="check-title">Description uses your Positioning Statement from Section 1</div><div class="check-desc">Mention Long Beach. Include words people search for naturally.</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp7')"><div class="check-box">✓</div><div><div class="check-title">Minimum 10 photos uploaded by you directly</div><div class="check-desc">Exterior, interior, 3–4 food photos, at least 1 staff/kitchen shot</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp8')"><div class="check-box">✓</div><div><div class="check-title">Menu uploaded or linked</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp9')"><div class="check-box">✓</div><div><div class="check-title">Q&A section reviewed and answered</div><div class="check-desc">Add your own most common questions and answer them yourself</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp10')"><div class="check-box">✓</div><div><div class="check-title">Responding to every Google review — positive and negative</div></div></li>
+        </ul>
+        <div class="score-badge">📊 GBP Score: <span id="gbp-score">0</span> / 10</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📷</span><div class="card-title">2B. Instagram Profile</div></div>
+      <div class="card-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'ig1')"><div class="check-box">✓</div><div><div class="check-title">Username is your restaurant name or close — no numbers or underscores</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig2')"><div class="check-box">✓</div><div><div class="check-title">Profile photo is your logo — clear even at small size</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig3')"><div class="check-box">✓</div><div><div class="check-title">Bio: what you are + your differentiator + call to action (3 lines max)</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig4')"><div class="check-box">✓</div><div><div class="check-title">Link in bio goes somewhere useful — menu, reservations, or website</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig5')"><div class="check-box">✓</div><div><div class="check-title">At least 9 posts on your grid</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig6')"><div class="check-box">✓</div><div><div class="check-title">Stories Highlights created: Menu, Hours/Location, Events</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🌍</span><div class="card-title">2C. Facebook, Yelp & Website</div></div>
+      <div class="card-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'fb1')"><div class="check-box">✓</div><div><div class="check-title">Facebook Page claimed and verified (not a personal profile posting as the restaurant)</div></div></li>
+          <li class="check-item" onclick="chk(this,'fb2')"><div class="check-box">✓</div><div><div class="check-title">All Facebook info matches your Google Business Profile exactly</div></div></li>
+          <li class="check-item" onclick="chk(this,'yelp1')"><div class="check-box">✓</div><div><div class="check-title">Yelp listing claimed at biz.yelp.com with current info</div></div></li>
+          <li class="check-item" onclick="chk(this,'web1')"><div class="check-box">✓</div><div><div class="check-title">Website is mobile-friendly and loads in under 3 seconds</div><div class="check-desc">Test at pagespeed.web.dev — over 70% of local restaurant searches happen on mobile</div></div></li>
+          <li class="check-item" onclick="chk(this,'web2')"><div class="check-box">✓</div><div><div class="check-title">Website menu and hours are current</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s2" onclick="markDone('s2')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s3')">Next: Social Playbook →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3 ══ -->
+  <div id="page-s3" class="page">
+    <div class="sec-eyebrow">Section 3</div>
+    <div class="sec-title">Your Social Media Playbook</div>
+    <div class="sec-desc">Consistency beats brilliance. A restaurant that posts three times a week with decent photos and genuine captions will always outperform one that posts a stunning photo once a month.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📝</span><div class="card-title">3A. The 5 Post Types That Work</div></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:1fr;gap:12px">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">
+            <div style="display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#FEF3C7;color:#92400E;margin-bottom:10px">F — Food Hero</div>
+            <div style="font-weight:600;color:var(--text1);font-size:13px;margin-bottom:4px">The Food Hero</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.5">A great photo or video of a dish. Caption focuses on the story, not just the name. Should be 40% of your posts.</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">
+            <div style="display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#E0E7FF;color:#3730A3;margin-bottom:10px">B — Behind Scenes</div>
+            <div style="font-weight:600;color:var(--text1);font-size:13px;margin-bottom:4px">Behind the Scenes</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.5">Kitchen prep, staff moments, anything real. Authenticity builds trust in a way no ad ever can.</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">
+            <div style="display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#D1FAE5;color:#065F46;margin-bottom:10px">C — Community</div>
+            <div style="font-weight:600;color:var(--text1);font-size:13px;margin-bottom:4px">The Community Post</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.5">Anything connecting you to Long Beach — the view, the neighborhood, the season. Builds loyal regulars.</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">
+            <div style="display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#FCE7F3;color:#9D174D;margin-bottom:10px">SP — Social Proof</div>
+            <div style="font-weight:600;color:var(--text1);font-size:13px;margin-bottom:4px">Social Proof</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.5">A customer review on a graphic, a reposted customer photo. Let your happiest customers do the talking.</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">
+            <div style="display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#FEE2E2;color:#9F1239;margin-bottom:10px">O — Offer/Event</div>
+            <div style="font-weight:600;color:var(--text1);font-size:13px;margin-bottom:4px">Offer or Event</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.5">Promotions, specials, new items, events. Scarcity and specificity make these work. Max 20% of posts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📅</span><div class="card-title">3B. Your 30-Day Content Calendar</div></div>
+      <div class="card-body">
+        <div class="callout callout-teal" style="margin-bottom:16px">
+          <div class="callout-title">How to Use This</div>
+          <p>Post 3–4 times per week. Use this as a menu to pick from, not a rigid schedule to feel guilty about.</p>
+        </div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">
+          <div style="font-weight:700;color:var(--text1);margin:16px 0 10px">📅 Week 1 — Establish Your Story</div>
+          <div style="margin-bottom:12px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:2px">Mon: Behind Scenes</div>
+            <div>Introduce (or re-introduce) your restaurant. One photo, one paragraph about why you opened and what you're about.</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:2px">Tue: Food Hero</div>
+            <div>Your most iconic dish. Photo + the story of how it ended up on the menu.</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:2px">Wed: Behind Scenes</div>
+            <div>Something real happening in the kitchen today. Prep, a delivery, anything authentic.</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:2px">Thu: Community</div>
+            <div>A Long Beach moment — the view, the neighborhood, the season. Connect your restaurant to this place.</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:2px">Fri: Offer/Event</div>
+            <div>Weekend special or "what we're excited about this weekend" post.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">#️⃣</span><div class="card-title">3C. Local Hashtags</div></div>
+      <div class="card-body">
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px">Don't forget to use local, specific hashtags in your posts</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#LongBeachNY</span>
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#LongBeachNewYork</span>
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#LongBeachEats</span>
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#LongBeachRestaurant</span>
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#NassauCountyEats</span>
+            <span style="background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500">#LIFoodie</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s3" onclick="markDone('s3')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s6')">Next: 30-Day Plan →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 6 ══ -->
+  <div id="page-s6" class="page">
+    <div class="sec-eyebrow">Section 6</div>
+    <div class="sec-title">Your 30-Day Launch Plan</div>
+    <div class="sec-desc">A week-by-week sequence that tells you exactly what to do, in what order, and why. Work through it at your own pace — the goal is a clear starting sequence, not perfection in 30 days.</div>
+    <div class="sec-divider"></div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden">
+      <div style="background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
+        <div style="color:#fff;font-weight:700;font-size:14px">Week 1 — Fix the Foundation</div>
+        <div style="color:rgba(255,255,255,0.45);font-size:12px">Goal: Digital presence in order</div>
+      </div>
+      <div style="padding:16px 20px">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w1a')"><div class="check-box">✓</div><div><div class="check-title">Complete Section 1 exercises — Customer Profile, Positioning Statement, Brand Voice</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1b')"><div class="check-box">✓</div><div><div class="check-title">Work through Section 2 checklist — aim for at least 8/10 on Google Business Profile</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1c')"><div class="check-box">✓</div><div><div class="check-title">Update GBP hours, description (use your Positioning Statement), and photos</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1d')"><div class="check-box">✓</div><div><div class="check-title">Fix Instagram bio — clear description, your location, working link</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1e')"><div class="check-box">✓</div><div><div class="check-title">Respond to any unanswered Google or Yelp reviews older than two weeks</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden">
+      <div style="background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
+        <div style="color:#fff;font-weight:700;font-size:14px">Week 2 — Start Posting Consistently</div>
+        <div style="color:rgba(255,255,255,0.45);font-size:12px">Goal: 3 posts published</div>
+      </div>
+      <div style="padding:16px 20px">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w2a')"><div class="check-box">✓</div><div><div class="check-title">Post three times using Week 1 ideas from your 30-day calendar — Mon, Wed, Fri</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2b')"><div class="check-box">✓</div><div><div class="check-title">Use the post types from Section 3 as your guide</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2c')"><div class="check-box">✓</div><div><div class="check-title">Save your standard hashtag set in your phone's notes for easy pasting</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2d')"><div class="check-box">✓</div><div><div class="check-title">Respond to every comment within 24 hours</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden">
+      <div style="background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
+        <div style="color:#fff;font-weight:700;font-size:14px">Week 3 — Expand Your Reach</div>
+        <div style="color:rgba(255,255,255,0.45);font-size:12px">Goal: Ask for reviews</div>
+      </div>
+      <div style="padding:16px 20px">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w3a')"><div class="check-box">✓</div><div><div class="check-title">Continue posting 3 times this week</div></div></li>
+          <li class="check-item" onclick="chk(this,'w3b')"><div class="check-box">✓</div><div><div class="check-title">Ask three satisfied customers to leave a Google review</div></div></li>
+          <li class="check-item" onclick="chk(this,'w3c')"><div class="check-box">✓</div><div><div class="check-title">Check Instagram Insights — note which post got most reach</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+      <div style="background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
+        <div style="color:#fff;font-weight:700;font-size:14px">Week 4 — Review and Plan</div>
+        <div style="color:rgba(255,255,255,0.45);font-size:12px">Goal: Month recap</div>
+      </div>
+      <div style="padding:16px 20px">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w4a')"><div class="check-box">✓</div><div><div class="check-title">Identify your best-performing post</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4b')"><div class="check-box">✓</div><div><div class="check-title">Write down one thing that worked and one thing to do differently in Month 2</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4c')"><div class="check-box">✓</div><div><div class="check-title">Plan your posts for Month 2 using Section 3 as a guide</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s6" onclick="markDone('s6')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('dashboard')">← Back to Dashboard</button>
+    </div>
+  </div>
+
+</div><!-- end #main -->
+
+<script>
+const SECTIONS = ['s1','s2','s3','s6'];
+const PAGES = ['dashboard','s1','s2','s3','s6'];
+const TITLES = {
+  dashboard:'Dashboard',
+  s1:'Marketing Foundation', s2:'Digital Presence', s3:'Social Media Playbook', s6:'30-Day Launch Plan'
+};
+
+const K = 'lblk_starter_';
+const ls = {
+  get:(k,d=null)=>{try{const v=localStorage.getItem(K+k);return v!==null?JSON.parse(v):d}catch{return d}},
+  set:(k,v)=>{try{localStorage.setItem(K+k,JSON.stringify(v))}catch{}},
+};
+
+let completed  = ls.get('completed',{});
+let checks     = ls.get('checks',{});
+let voicePos   = ls.get('voice_pos',[]);
+let voiceNeg   = ls.get('voice_neg',[]);
+
+function show(id) {
+  PAGES.forEach(p => {
+    const el = document.getElementById('page-'+p);
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+  const page = document.getElementById('page-'+id);
+  if(page) page.classList.add('active');
+
+  const navItems = document.querySelectorAll('.nav-item');
+  const allIds = ['dashboard','s1','s2','s3','s6'];
+  const idx = allIds.indexOf(id);
+  if(idx >= 0 && navItems[idx]) navItems[idx].classList.add('active');
+
+  document.getElementById('topbar-title').textContent = TITLES[id] || id;
+  ls.set('current',id);
+  window.scrollTo(0,0);
+  closeSidebar();
+}
+
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
+
+function sf(key) {
+  const el = document.getElementById('f-'+key);
+  if(!el) return;
+  ls.set('field_'+key, el.value);
+  if(key==='biz-name') updateBizDisplays();
+}
+
+function loadFields() {
+  const fields = ['biz-name','ig-handle','one-liner','cust-common','cust-best','cust-want','cust-problem','pos-unique','positioning'];
+  fields.forEach(k => {
+    const el = document.getElementById('f-'+k);
+    if(el) { const v=ls.get('field_'+k,''); if(v) el.value=v; }
+  });
+}
+
+function updateBizDisplays() {
+  const name = document.getElementById('f-biz-name')?.value || '';
+  const display = name || 'Not set yet';
+  const el = document.getElementById('sb-biz-name');
+  if(el) el.textContent = display;
+  const dEl = document.getElementById('dash-biz');
+  if(dEl) {
+    if(name) {
+      dEl.textContent = name;
+      document.getElementById('dash-headline').innerHTML = `Welcome back,<br><em>${name}</em>.`;
+    } else {
+      dEl.textContent = 'Set up your business in Section 1 →';
+    }
+  }
+}
+
+function toggleTag(btn, type) {
+  const word = btn.textContent;
+  const arr = type === 'pos' ? voicePos : voiceNeg;
+  const max = 3;
+  const idx = arr.indexOf(word);
+  const selClass = type === 'pos' ? 'sel-pos' : 'sel-neg';
+
+  if(idx >= 0) {
+    arr.splice(idx,1);
+    btn.classList.remove(selClass);
+  } else {
+    if(arr.length >= max) return;
+    arr.push(word);
+    btn.classList.add(selClass);
+  }
+  ls.set(type==='pos'?'voice_pos':'voice_neg', arr);
+}
+
+function loadTags() {
+  document.querySelectorAll('#tags-positive .tag').forEach(b => {
+    if(voicePos.includes(b.textContent)) b.classList.add('sel-pos');
+  });
+  document.querySelectorAll('#tags-negative .tag').forEach(b => {
+    if(voiceNeg.includes(b.textContent)) b.classList.add('sel-neg');
+  });
+}
+
+function chk(li, key) {
+  const isChecked = li.classList.toggle('checked');
+  checks[key] = isChecked;
+  ls.set('checks', checks);
+  updateGBP();
+  updateStats();
+}
+
+function loadChecks() {
+  document.querySelectorAll('.check-item').forEach(li => {
+    const oc = li.getAttribute('onclick') || '';
+    const m = oc.match(/'([^']+)'\)/);
+    if(m && checks[m[1]]) li.classList.add('checked');
+  });
+}
+
+function updateGBP() {
+  const gbpKeys = ['gbp1','gbp2','gbp3','gbp4','gbp5','gbp6','gbp7','gbp8','gbp9','gbp10'];
+  const done = gbpKeys.filter(k => checks[k]).length;
+  const el = document.getElementById('gbp-score');
+  if(el) el.textContent = done;
+}
+
+function markDone(id) {
+  completed[id] = true;
+  ls.set('completed', completed);
+  updateCompletionUI();
+}
+
+function updateCompletionUI() {
+  const count = SECTIONS.filter(s => completed[s]).length;
+  const pct = Math.round(count/SECTIONS.length*100);
+
+  document.getElementById('prog-fill').style.width = pct+'%';
+  document.getElementById('prog-count').textContent = count+' of '+SECTIONS.length+' complete';
+  document.getElementById('prog-pct').textContent = pct+'%';
+  document.getElementById('stat-complete').textContent = count+'/4';
+
+  SECTIONS.forEach(s => {
+    const nc = document.getElementById('nc-'+s);
+    const card = document.getElementById('card-'+s);
+    const st = document.getElementById('st-'+s);
+    const btn = document.getElementById('done-'+s);
+    const navItem = nc?.closest('.nav-item');
+
+    if(completed[s]) {
+      if(nc) nc.textContent = '✓';
+      if(navItem) navItem.classList.add('done');
+      if(card) card.classList.add('done');
+      if(st) { st.textContent = '✓ Complete'; st.classList.add('done'); }
+      if(btn) {
+        btn.textContent = '✓ Section Complete!';
+        btn.className = 'btn btn-success btn-lg';
+        btn.disabled = true;
+      }
+    }
+  });
+}
+
+function updateStats() {
+  const total = Object.values(checks).filter(Boolean).length;
+  const el = document.getElementById('stat-checks');
+  if(el) el.textContent = total;
+}
+
+function resetAll() {
+  if(!confirm('Reset all progress? This cannot be undone.')) return;
+  Object.keys(localStorage).forEach(k => { if(k.startsWith(K)) localStorage.removeItem(k); });
+  location.reload();
+}
+
+function init() {
+  loadFields();
+  loadTags();
+  loadChecks();
+  updateCompletionUI();
+  updateGBP();
+  updateStats();
+  updateBizDisplays();
+
+  const last = ls.get('current','dashboard');
+  show(last);
+}
+
+init();
+</script>
+</body>
+</html>
