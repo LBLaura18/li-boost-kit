@@ -198,6 +198,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text1);min
   flex-wrap:wrap;
   gap:12px;
 }
+[data-theme="dark"] #topbar{background:rgba(13,27,38,0.85)}
 
 .topbar-left{display:flex;align-items:center;gap:10px;min-width:0}
 .topbar-crumb{font-size:12px;color:var(--text3)}
@@ -363,7 +364,6 @@ select option{background:var(--bg2);color:var(--text1)}
 .complete-row{
   display:flex;align-items:center;gap:14px;
   margin-top:28px;padding-top:22px;border-top:1px solid var(--border);
-  flex-wrap:wrap;
 }
 .next-link{
   font-size:13px;color:var(--teal);font-weight:600;
@@ -413,7 +413,7 @@ select option{background:var(--bg2);color:var(--text1)}
 .dash-biz-name{font-size:14px;font-weight:600;color:#fff}
 .dash-biz-empty{font-size:13px;color:rgba(255,255,255,0.4);font-style:italic}
 
-.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
 .stat-card{
   background:var(--bg2);border:1px solid var(--border);
   border-radius:var(--r);padding:20px;
@@ -425,7 +425,7 @@ select option{background:var(--bg2);color:var(--text1)}
 .stat-card.gold{border-color:rgba(200,151,58,0.3);background:rgba(200,151,58,0.04)}
 .stat-card.gold .stat-val{color:var(--accent)}
 
-.section-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .sec-card{
   background:var(--bg2);border:1px solid var(--border);
   border-radius:var(--r);padding:18px 20px;
@@ -443,7 +443,7 @@ select option{background:var(--bg2);color:var(--text1)}
 .sec-status.done{color:var(--success);font-weight:500}
 .sec-arrow{color:var(--border2);font-size:14px;margin-left:auto}
 
-/* ── LOGO MODAL ── */
+/* ── SETUP MODAL ── */
 .modal-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,0.6);
   z-index:1000;display:flex;align-items:center;justify-content:center;
@@ -492,6 +492,34 @@ select option{background:var(--bg2);color:var(--text1)}
 .logo-upload-hint{font-size:13px;color:var(--text3)}
 .logo-upload-hint strong{color:var(--teal)}
 
+/* ── AI LOOKUP ── */
+.ai-lookup-card{
+  background:linear-gradient(135deg,rgba(26,122,138,0.08),rgba(200,151,58,0.05));
+  border:1px solid rgba(26,122,138,0.2);
+  border-radius:var(--r);padding:22px;margin-bottom:18px;
+}
+.ai-result-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+}
+.ai-result-item:last-child{border-bottom:none}
+.ai-result-icon{width:32px;height:32px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ai-result-label{font-size:11px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3);font-weight:600}
+.ai-result-val{font-size:13px;color:var(--teal);font-weight:500}
+.ai-result-val a{color:var(--teal);text-decoration:none}
+.ai-result-val a:hover{text-decoration:underline}
+.ai-result-empty{font-size:13px;color:var(--text3);font-style:italic}
+
+.ai-thinking{
+  display:flex;align-items:center;gap:10px;
+  padding:16px;background:var(--bg3);border-radius:var(--r-sm);
+  font-size:13px;color:var(--text2);
+}
+.ai-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 1.4s ease-in-out infinite}
+.ai-dot:nth-child(2){animation-delay:0.2s}
+.ai-dot:nth-child(3){animation-delay:0.4s}
+@keyframes pulse{0%,80%,100%{transform:scale(0.6);opacity:0.4}40%{transform:scale(1);opacity:1}}
+
 /* ── METRICS DASHBOARD ── */
 .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .metric-input-card{
@@ -524,6 +552,160 @@ select option{background:var(--bg2);color:var(--text1)}
 .chart-sub{font-size:11px;color:var(--text3);margin-bottom:18px}
 .chart-wrap{position:relative;height:200px}
 
+.ai-analysis-box{
+  background:linear-gradient(135deg,var(--navy),#1a3a55);
+  border-radius:var(--r);padding:24px;margin-top:20px;
+}
+.ai-analysis-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.ai-analysis-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(200,151,58,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.ai-analysis-title{font-weight:700;color:#fff;font-size:15px}
+.ai-analysis-sub{font-size:12px;color:rgba(255,255,255,0.45)}
+.ai-analysis-output{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--r-sm);padding:16px;
+  font-size:13px;color:rgba(255,255,255,0.75);
+  line-height:1.8;min-height:80px;
+  white-space:pre-wrap;
+}
+.ai-analysis-output.empty{color:rgba(255,255,255,0.3);font-style:italic}
+
+/* ── API KEY SETUP ── */
+.api-setup-card{
+  background:linear-gradient(135deg,rgba(26,122,138,0.06),rgba(200,151,58,0.04));
+  border:1px solid rgba(26,122,138,0.2);border-radius:var(--r);
+  padding:24px;margin-bottom:20px;
+}
+.api-status{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:99px;font-size:11px;font-weight:600;
+}
+.api-status.connected{background:rgba(45,122,95,0.15);color:var(--success)}
+.api-status.disconnected{background:rgba(200,151,58,0.15);color:var(--accent)}
+
+.api-steps{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.api-step{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--bg2);border-radius:var(--r-sm);padding:14px;
+  border:1px solid var(--border);
+}
+.api-step-num{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;
+}
+.api-step-text{font-size:13px;color:var(--text2);line-height:1.6}
+.api-step-text strong{color:var(--text1)}
+.api-step-text a{color:var(--teal)}
+
+/* ── PROMPT CARDS ── */
+.prompt-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px;margin-bottom:12px;position:relative;
+}
+.prompt-cat{
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--teal);font-weight:700;margin-bottom:8px;
+}
+.prompt-text{
+  font-size:13px;color:var(--text2);line-height:1.75;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:12px 14px;
+  white-space:pre-wrap;font-family:'Outfit',sans-serif;
+}
+.copy-btn{
+  position:absolute;top:14px;right:14px;
+  background:var(--navy);color:#fff;border:none;
+  border-radius:6px;padding:5px 11px;
+  font-size:11px;font-weight:600;cursor:pointer;
+  font-family:'Outfit',sans-serif;transition:all var(--transition);
+}
+.copy-btn:hover{background:var(--teal)}
+.copy-btn.copied{background:var(--success)}
+
+/* ── CONTENT CALENDAR ── */
+.cal-week-title{font-size:13px;font-weight:700;color:var(--text1);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.cal-item{
+  display:grid;grid-template-columns:70px 110px 1fr;
+  gap:12px;align-items:start;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:12px 14px;margin-bottom:8px;
+}
+.cal-day{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-top:3px}
+[data-theme="dark"] .cal-day{color:rgba(255,255,255,0.7)}
+.cal-type{display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;white-space:nowrap;margin-top:1px}
+.tF{background:#FEF3C7;color:#92400E}.tB{background:#E0E7FF;color:#3730A3}
+.tC{background:#D1FAE5;color:#065F46}.tSP{background:#FCE7F3;color:#9D174D}
+.tO{background:#FEE2E2;color:#9F1239}
+[data-theme="dark"] .tF{background:rgba(254,243,199,0.15);color:#FCD34D}
+[data-theme="dark"] .tB{background:rgba(224,231,255,0.1);color:#A5B4FC}
+[data-theme="dark"] .tC{background:rgba(209,250,229,0.1);color:#6EE7B7}
+[data-theme="dark"] .tSP{background:rgba(252,231,243,0.1);color:#F9A8D4}
+[data-theme="dark"] .tO{background:rgba(254,226,226,0.1);color:#FCA5A5}
+.cal-idea{font-size:13px;color:var(--text2);line-height:1.55}
+
+/* ── HASHTAGS ── */
+.hashtag-group{margin-bottom:16px}
+.hashtag-group-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.hashtag-list{display:flex;flex-wrap:wrap;gap:6px}
+.hashtag{background:var(--teal-pale);color:var(--teal);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500}
+[data-theme="dark"] .hashtag{background:rgba(26,122,138,0.15);color:var(--teal2)}
+
+/* ── MISTAKE ITEMS ── */
+.mistake{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px 22px;margin-bottom:14px;
+  border-left:4px solid var(--danger);
+}
+.mistake-num{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--danger);font-weight:700;margin-bottom:6px}
+.mistake-title{font-weight:700;color:var(--text1);font-size:15px;margin-bottom:8px}
+.mistake-body{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.fix-lbl{font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:var(--success);font-weight:700;margin-bottom:4px}
+.fix-text{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* ── WEEK BLOCKS ── */
+.week-block{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+.week-head{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+[data-theme="dark"] .week-head{background:var(--sidebar2)}
+.week-title{color:#fff;font-weight:700;font-size:14px}
+.week-goal{color:rgba(255,255,255,0.45);font-size:12px}
+.week-body{padding:16px 20px}
+
+/* ── TOOLS ── */
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.tool-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;display:flex;align-items:flex-start;gap:12px}
+.tool-icon{width:36px;height:36px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.tool-name{font-weight:600;font-size:13px;color:var(--text1);margin-bottom:3px}
+.tool-desc{font-size:12px;color:var(--text3);line-height:1.5}
+.free-badge{display:inline-block;background:rgba(45,122,95,0.12);color:var(--success);font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px;margin-top:4px;letter-spacing:0.05em}
+
+/* ── SEASONAL TABLE ── */
+.s-table{width:100%;border-collapse:collapse;font-size:13px}
+.s-table th{background:var(--teal);color:#fff;padding:10px 14px;text-align:left;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;font-weight:600}
+.s-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.s-table tr:nth-child(even) td{background:var(--bg3)}
+
+/* ── INCENTIVE TABLE ── */
+.inc-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:18px}
+.inc-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;font-weight:600}
+[data-theme="dark"] .inc-table th{background:var(--sidebar2)}
+.inc-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.inc-table tr:nth-child(even) td{background:var(--bg3)}
+
+/* ── POST TYPES ── */
+.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.post-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:18px}
+.post-badge{display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;margin-bottom:10px}
+.post-name{font-weight:700;color:var(--text1);font-size:14px;margin-bottom:6px}
+.post-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.post-tip{margin-top:10px;font-size:12px;color:var(--teal);font-style:italic;font-weight:500}
+
 /* ── MOBILE ── */
 #mob-toggle{
   display:none;position:fixed;top:14px;left:14px;z-index:200;
@@ -545,9 +727,12 @@ select option{background:var(--bg2);color:var(--text1)}
   .topbar-right{gap:4px}
   .tb-btn{padding:5px 10px;font-size:10px}
   .page{padding:24px 20px 50px}
-  .stat-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
   .section-grid{grid-template-columns:1fr}
+  .post-grid{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr}
   .metrics-grid{grid-template-columns:1fr}
+  .cal-item{grid-template-columns:1fr;gap:6px}
   .dash-headline{font-size:24px}
   #mob-toggle{display:flex}
   #overlay.open{display:block}
@@ -568,7 +753,7 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="kit-logo-circle">🏖️</div>
       <div class="kit-name">LB Launch Kit</div>
     </div>
-    <div class="kit-tier">✦ Growth — Gym, Fitness & Wellness Edition</div>
+    <div class="kit-tier">✦ Growth — Gym, Fitness Growth — Gym, Fitness & Wellness Edition Wellness Edition</div>
   </div>
 
   <div id="prog-wrap">
@@ -628,11 +813,17 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="nav-check" id="nc-s9"></div>
       <span class="nav-label">9. Post-Event Survey</span>
     </li>
+
+    <li class="nav-group-label">AI Tools</li>
+    <li class="nav-item" onclick="show('ai-setup')">
+      <div class="nav-dot"></div>
+      <span class="nav-label">⚙️ AI Setup</span>
+    </li>
   </ul>
 
   <div id="sidebar-foot">
     <div class="biz-thumb">
-      <div class="biz-logo-sm" id="sb-logo">🍽️</div>
+      <div class="biz-logo-sm" id="sb-logo">💪</div>
       <div>
         <div class="biz-label">Your Business</div>
         <div class="biz-val" id="sb-biz-name">Not set yet</div>
@@ -652,80 +843,1210 @@ select option{background:var(--bg2);color:var(--text1)}
   <!-- TOPBAR -->
   <div id="topbar">
     <div class="topbar-left">
+      <span class="topbar-crumb">LB Launch Kit</span>
+      <span class="topbar-sep">›</span>
       <span class="topbar-title" id="topbar-title">Dashboard</span>
     </div>
     <div class="topbar-right">
-      <button class="tb-btn" onclick="toggleDark()" id="dark-btn">🌙 Dark</button>
+      <button class="tb-btn teal" onclick="show('ai-setup')">⚡ AI Features</button>
       <button class="tb-btn" onclick="openLogoModal()">🖼 Logo</button>
+      <button class="tb-btn" onclick="toggleDark()" id="dark-btn">🌙 Dark Mode</button>
     </div>
   </div>
 
-  <!-- Dashboard and other sections content would go here -->
-  <!-- NOTE: Full growth edition includes all 9 sections -->
-  <!-- For brevity, showing just the structure -->
-
+  <!-- ══ DASHBOARD ══ -->
   <div id="page-dashboard" class="page active">
+
     <div class="dash-hero">
-      <div class="dash-tag">✦ Growth — Gym, Fitness & Wellness Edition</div>
-      <div class="dash-headline">Your marketing<br>starts here.</div>
-      <div class="dash-sub">All 9 sections. Track your metrics. Everything you need to grow.</div>
+      <div class="dash-tag">✦ Growth — Gym, Fitness Growth — Gym, Fitness & Wellness Edition Wellness Edition</div>
+      <div class="dash-headline" id="dash-headline">Your marketing<br>starts here.</div>
+      <div class="dash-sub">Work through each section at your own pace. Everything saves automatically in your browser — close and return anytime.</div>
+      <div class="dash-biz-display">
+        <div class="dash-biz-logo" id="dash-logo">💪</div>
+        <div>
+          <div class="dash-biz-name" id="dash-biz">Set up your business in Section 1 →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card gold">
+        <div class="stat-label">Sections Complete</div>
+        <div class="stat-val" id="stat-complete">0/9</div>
+        <div class="stat-note">Keep going</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Items Checked Off</div>
+        <div class="stat-val" id="stat-checks">0</div>
+        <div class="stat-note">Total checklist items</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">AI Prompts Ready</div>
+        <div class="stat-val">20+</div>
+        <div class="stat-note">Personalized to your business</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">AI Features</div>
+        <div class="stat-val" id="stat-ai">—</div>
+        <div class="stat-note" id="stat-ai-note">Setup required</div>
+      </div>
+    </div>
+
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);font-weight:600;margin-bottom:14px;">All Sections</div>
+    <div class="section-grid">
+      <div class="sec-card" id="card-s1" onclick="show('s1')"><div class="sec-icon">🎯</div><div><div class="sec-num">Section 1</div><div class="sec-name">Marketing Foundation</div><div class="sec-status" id="st-s1">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s2" onclick="show('s2')"><div class="sec-icon">🌐</div><div><div class="sec-num">Section 2</div><div class="sec-name">Digital Presence</div><div class="sec-status" id="st-s2">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s3" onclick="show('s3')"><div class="sec-icon">📱</div><div><div class="sec-num">Section 3</div><div class="sec-name">Social Media Playbook</div><div class="sec-status" id="st-s3">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s4" onclick="show('s4')"><div class="sec-icon">💰</div><div><div class="sec-num">Section 4</div><div class="sec-name">Paid Media Basics</div><div class="sec-status" id="st-s4">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s5" onclick="show('s5')"><div class="sec-icon">⚠️</div><div><div class="sec-num">Section 5</div><div class="sec-name">Common Mistakes</div><div class="sec-status" id="st-s5">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s6" onclick="show('s6')"><div class="sec-icon">🗓️</div><div><div class="sec-num">Section 6</div><div class="sec-name">30-Day Launch Plan</div><div class="sec-status" id="st-s6">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s7" onclick="show('s7')"><div class="sec-icon">🤖</div><div><div class="sec-num">Section 7</div><div class="sec-name">Marketing Command Center</div><div class="sec-status" id="st-s7">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s8" onclick="show('s8')"><div class="sec-icon">📋</div><div><div class="sec-num">Section 8</div><div class="sec-name">Lead Capture System</div><div class="sec-status" id="st-s8">Not started</div></div><div class="sec-arrow">›</div></div>
+      <div class="sec-card" id="card-s9" onclick="show('s9')"><div class="sec-icon">📊</div><div><div class="sec-num">Section 9</div><div class="sec-name">Post-Event Survey System</div><div class="sec-status" id="st-s9">Not started</div></div><div class="sec-arrow">›</div></div>
+    </div>
+
+    <div class="callout callout-gold" style="margin-top:20px">
+      <div class="callout-title">📍 Built for Long Beach, NY</div>
+      <p>Every section reflects Long Beach's seasonal rhythms, community character, and local market. The content calendar, hashtag guide, and seasonal hooks are specific to your backyard.</p>
+    </div>
+  </div>
+
+  <!-- ══ METRICS DASHBOARD ══ -->
+  <div id="page-metrics" class="page">
+    <div class="sec-eyebrow">📊 Live Tracking</div>
+    <div class="sec-title">Your Metrics Dashboard</div>
+    <div class="sec-desc">Enter your numbers each week. The charts update automatically. Use the AI Analysis button to get instant recommendations based on your data.</div>
+    <div class="sec-divider"></div>
+
+    <div class="callout callout-gold" style="margin-bottom:20px">
+      <div class="callout-title">How This Works</div>
+      <p>Pull your numbers from Instagram Insights, Facebook Business Suite, and your Google Business Profile — all free, built into each platform. Enter them below weekly. Takes about 5 minutes. Your data stays private in your browser.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📝</span><div class="card-title">This Week's Numbers</div></div>
+      <div class="card-body">
+        <div class="metrics-grid">
+          <div class="metric-input-card">
+            <div class="metric-platform"><span class="platform-icon">📷</span><span class="platform-name">Instagram</span></div>
+            <div class="metric-row"><div class="metric-lbl">Followers</div><input class="metric-input" type="number" id="m-ig-followers" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Posts This Week</div><input class="metric-input" type="number" id="m-ig-posts" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Total Reach</div><input class="metric-input" type="number" id="m-ig-reach" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Likes</div><input class="metric-input" type="number" id="m-ig-likes" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Comments</div><input class="metric-input" type="number" id="m-ig-comments" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Saves</div><input class="metric-input" type="number" id="m-ig-saves" placeholder="0" oninput="saveMetrics()"></div>
+          </div>
+          <div class="metric-input-card">
+            <div class="metric-platform"><span class="platform-icon">👍</span><span class="platform-name">Facebook</span></div>
+            <div class="metric-row"><div class="metric-lbl">Page Likes</div><input class="metric-input" type="number" id="m-fb-likes" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Posts This Week</div><input class="metric-input" type="number" id="m-fb-posts" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Reach</div><input class="metric-input" type="number" id="m-fb-reach" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Reactions</div><input class="metric-input" type="number" id="m-fb-reactions" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Link Clicks</div><input class="metric-input" type="number" id="m-fb-clicks" placeholder="0" oninput="saveMetrics()"></div>
+          </div>
+          <div class="metric-input-card">
+            <div class="metric-platform"><span class="platform-icon">🔍</span><span class="platform-name">Google Business</span></div>
+            <div class="metric-row"><div class="metric-lbl">Profile Views</div><input class="metric-input" type="number" id="m-gbp-views" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Direction Requests</div><input class="metric-input" type="number" id="m-gbp-dirs" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Calls</div><input class="metric-input" type="number" id="m-gbp-calls" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Website Clicks</div><input class="metric-input" type="number" id="m-gbp-web" placeholder="0" oninput="saveMetrics()"></div>
+            <div class="metric-row"><div class="metric-lbl">Review Count</div><input class="metric-input" type="number" id="m-gbp-reviews" placeholder="0" oninput="saveMetrics()"></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button class="btn btn-teal" onclick="logWeek()">📥 Save This Week's Data</button>
+          <button class="btn btn-ghost" onclick="clearCurrentWeek()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Instagram Reach — Weekly Trend</div>
+      <div class="chart-sub">Logged weeks shown below. Enter data above and click "Save This Week's Data" to add.</div>
+      <div class="chart-wrap"><canvas id="chart-reach"></canvas></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px">
+      <div class="chart-card" style="margin-bottom:0">
+        <div class="chart-title">Engagement Breakdown</div>
+        <div class="chart-sub">Likes · Comments · Saves</div>
+        <div class="chart-wrap"><canvas id="chart-engage"></canvas></div>
+      </div>
+      <div class="chart-card" style="margin-bottom:0">
+        <div class="chart-title">Google Business Actions</div>
+        <div class="chart-sub">Calls · Directions · Web Clicks</div>
+        <div class="chart-wrap"><canvas id="chart-gbp"></canvas></div>
+      </div>
+    </div>
+
+    <div class="ai-analysis-box">
+      <div class="ai-analysis-header">
+        <div class="ai-analysis-icon">🤖</div>
+        <div>
+          <div class="ai-analysis-title">AI Metrics Analysis</div>
+          <div class="ai-analysis-sub">Powered by Claude — requires API key in AI Setup</div>
+        </div>
+        <button class="btn btn-accent" style="margin-left:auto" onclick="analyzeMetrics()">Analyze My Data →</button>
+      </div>
+      <div class="ai-analysis-output empty" id="analysis-output">Your AI analysis will appear here after you click "Analyze My Data." Make sure you've entered at least one week of data and set up your API key in AI Setup.</div>
+    </div>
+  </div>
+
+  <!-- ══ AI SETUP ══ -->
+  <div id="page-ai-setup" class="page">
+    <div class="sec-eyebrow">⚡ Premium Feature</div>
+    <div class="sec-title">AI Setup</div>
+    <div class="sec-desc">The AI features in this kit — business lookup, metrics analysis, and personalized recommendations — run on your own Anthropic API account. Setup takes about 5 minutes and costs pennies per use.</div>
+    <div class="sec-divider"></div>
+
+    <div class="api-setup-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div style="font-weight:700;font-size:15px;color:var(--text1)">API Connection Status</div>
+        <div class="api-status" id="api-status-badge">⬤ Not connected</div>
+      </div>
+
+      <div class="api-steps">
+        <div class="api-step">
+          <div class="api-step-num">1</div>
+          <div class="api-step-text">Go to <a href="https://console.anthropic.com" target="_blank"><strong>console.anthropic.com</strong></a> and create a free account using any email address.</div>
+        </div>
+        <div class="api-step">
+          <div class="api-step-num">2</div>
+          <div class="api-step-text">Add a payment method under <strong>Settings → Billing</strong>. You won't be charged until you use the API — and at your usage level, expect less than <strong>$1/month</strong>.</div>
+        </div>
+        <div class="api-step">
+          <div class="api-step-num">3</div>
+          <div class="api-step-text">Go to <a href="https://console.anthropic.com/settings/keys" target="_blank"><strong>console.anthropic.com/settings/keys</strong></a> → click <strong>Create Key</strong> → name it "LB Launch Kit" → copy the key immediately (it's only shown once).</div>
+        </div>
+        <div class="api-step">
+          <div class="api-step-num">4</div>
+          <div class="api-step-text">Set a <strong>monthly spend limit of $5</strong> under Settings → Limits. This is your safety net — you'll never be charged more.</div>
+        </div>
+        <div class="api-step">
+          <div class="api-step-num">5</div>
+          <div class="api-step-text">Paste your key below. It is stored <strong>only in your browser</strong> — it never leaves your device except to call Anthropic's API directly.</div>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:16px">
+        <label class="field-label">Your Anthropic API Key</label>
+        <div style="display:flex;gap:10px">
+          <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." oninput="saveApiKey()" style="flex:1">
+          <button class="btn btn-teal" onclick="testApiKey()">Test Connection</button>
+        </div>
+        <div class="field-hint" style="margin-top:6px">Your key is stored locally in your browser only. It is not sent anywhere except directly to Anthropic when you use AI features.</div>
+      </div>
+
+      <div id="api-test-result" style="display:none" class="callout callout-teal" style="margin-top:12px">
+        <div class="callout-body" id="api-test-msg"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🔍</span><div class="card-title">AI Business Lookup</div></div>
+      <div class="card-body">
+        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7">Enter your business name and click Lookup. Claude will search for your website, Google Maps listing, Instagram, Facebook, and Yelp — and return direct links so you can verify and update each one.</p>
+
+        <div style="display:flex;gap:10px;margin-bottom:16px">
+          <input type="text" id="lookup-biz" placeholder="e.g. Power + Precision Gym, Long Beach NY" style="flex:1">
+          <button class="btn btn-accent" onclick="runLookup()">🔍 Find My Business</button>
+        </div>
+
+        <div id="lookup-thinking" style="display:none">
+          <div class="ai-thinking">
+            <div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div>
+            <span>Claude is searching for your business...</span>
+          </div>
+        </div>
+
+        <div id="lookup-results" class="ai-lookup-card" style="display:none">
+          <div class="ai-result-item">
+            <div class="ai-result-icon">🌐</div>
+            <div><div class="ai-result-label">Website</div><div class="ai-result-val" id="lr-website">—</div></div>
+          </div>
+          <div class="ai-result-item">
+            <div class="ai-result-icon">📍</div>
+            <div><div class="ai-result-label">Google Maps</div><div class="ai-result-val" id="lr-maps">—</div></div>
+          </div>
+          <div class="ai-result-item">
+            <div class="ai-result-icon">📷</div>
+            <div><div class="ai-result-label">Instagram</div><div class="ai-result-val" id="lr-ig">—</div></div>
+          </div>
+          <div class="ai-result-item">
+            <div class="ai-result-icon">👍</div>
+            <div><div class="ai-result-label">Facebook</div><div class="ai-result-val" id="lr-fb">—</div></div>
+          </div>
+          <div class="ai-result-item">
+            <div class="ai-result-icon">⭐</div>
+            <div><div class="ai-result-label">Yelp</div><div class="ai-result-val" id="lr-yelp">—</div></div>
+          </div>
+        </div>
+
+        <div id="lookup-note" style="display:none" class="callout callout-warn">
+          <div class="callout-title">Verify These Links</div>
+          <p>Claude makes its best effort to find your listings — always click each link to verify it's the correct page before saving. If a link is wrong, you can update it manually in the field above each result.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 1 ══ -->
+  <div id="page-s1" class="page">
+    <div class="sec-eyebrow">Section 1</div>
+    <div class="sec-title">Your Marketing Foundation</div>
+    <div class="sec-desc">Before you post anything, you need to know who you're talking to, what makes you different, and how you want to sound. Everything else builds on what you define here.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><div class="card-title">1A. Business Profile</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Business Name</label>
+          <input type="text" id="f-biz-name" placeholder="e.g. Power + Precision Gym" oninput="sf('biz-name')">
+        </div>
+        <div class="field">
+          <label class="field-label">Instagram Handle</label>
+          <input type="text" id="f-ig-handle" placeholder="@yourbusiness" oninput="sf('ig-handle')">
+        </div>
+        <div class="field">
+          <label class="field-label">Your gym or fitness business in one sentence</label>
+          <div class="field-hint">What are you? Be specific — not "fitness" but your actual type and vibe.</div>
+          <textarea id="f-one-liner" placeholder="e.g. A boutique CrossFit gym on Long Beach focused on functional strength training for busy professionals. Or: A yoga studio specializing in trauma-informed vinyasa for women over 40." oninput="sf('one-liner')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">👥</span><div class="card-title">1B. Customer Profile</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Who is your most common customer right now?</label>
+          <div class="field-hint">Age range, who they come with, how often, what they order</div>
+          <textarea id="f-cust-common" placeholder="e.g. Women 25–45, working professionals, come 3–4x/week for morning classes before work. Mix of beginners and experienced gym-goers." oninput="sf('cust-common')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Who is your best customer?</label>
+          <div class="field-hint">The one who orders generously, tips well, comes back, tells friends</div>
+          <textarea id="f-cust-best" placeholder="e.g. Our regulars who've been coming for years and introduce us to their friends." oninput="sf('cust-best')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Who do you want more of?</label>
+          <textarea id="f-cust-want" placeholder="e.g. High school athletes who aspire to play in college and need personalized training plans." oninput="sf('cust-want')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">What problem does your gym or fitness business solve for them?</label>
+          <textarea id="f-cust-problem" placeholder="e.g. Our staff has strong credentials and decades of experience at the amateur and pro level of athletic training. We are not your typical big-box gym." oninput="sf('cust-problem')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">💡</span><div class="card-title">1C. Positioning Statement</div></div>
+      <div class="card-body">
+        <div class="callout callout-teal" style="margin-bottom:16px">
+          <div class="callout-title">Why This Matters</div>
+          <p>"Great fitness classes" is not positioning. Every gym claims that. Positioning is the thing only you can say — it goes in your Instagram bio, Google Business Profile, and every email newsletter you send.</p>
+        </div>
+        <div class="field">
+          <label class="field-label">What do you do that no other Long Beach gym, fitness studio, or trainer does, or does as well?</label>
+          <textarea id="f-pos-unique" placeholder="e.g. The only gym on Long Beach with personalized strength training for post-injury recovery, run by certified physical therapists. Or: The only all-women's martial arts studio in Long Island with a focus on self-defense and confidence-building." oninput="sf('pos-unique')"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Your Positioning Statement</label>
+          <div class="field-hint">[Name] is the place in Long Beach where [customer] comes when they want [experience] — because [only you can claim this].</div>
+          <textarea id="f-positioning" placeholder="Write your positioning statement here..." oninput="sf('positioning');updatePrompts()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🗣️</span><div class="card-title">1D. Brand Voice</div></div>
+      <div class="card-body">
+        <div class="field">
+          <label class="field-label">Pick 3 words that describe how your gym or fitness brand sounds at its best</label>
+          <div class="tag-cloud" id="tags-positive">
+            <button class="tag" onclick="toggleTag(this,'pos')">Warm</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Friendly</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Local</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Honest</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Playful</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Casual</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Sophisticated</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Passionate</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Family-first</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Unpretentious</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Welcoming</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Bold</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Seasonal</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Community-focused</button>
+            <button class="tag" onclick="toggleTag(this,'pos')">Laid-back</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Pick 3 words you should NEVER sound like</label>
+          <div class="tag-cloud" id="tags-negative">
+            <button class="tag" onclick="toggleTag(this,'neg')">Salesy</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Corporate</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Desperate</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Formal</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Distant</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Generic</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Complicated</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Boastful</button>
+            <button class="tag" onclick="toggleTag(this,'neg')">Stiff</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s1" onclick="markDone('s1')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s2')">Next: Digital Presence →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2 ══ -->
+  <div id="page-s2" class="page">
+    <div class="sec-eyebrow">Section 2</div>
+    <div class="sec-title">Your Digital Presence Checklist</div>
+    <div class="sec-desc">Before creating a single piece of content, your digital house needs to be in order. Work through this once, completely. Check off items only when they're actually done.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🔍</span><div class="card-title">2A. Google Business Profile — Do This First</div></div>
+      <div class="card-body">
+        <div class="callout callout-gold" style="margin-bottom:14px">
+          <div class="callout-title">⚡ Highest Priority</div>
+          <p>Your Google Business Profile is your most valuable free digital real estate. It's what appears when someone searches your gym name or "gyms in Long Beach" or "yoga classes near me." Most have it half-set-up or badly outdated.</p>
+        </div>
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'gbp1')"><div class="check-box">✓</div><div><div class="check-title">Claimed and verified at business.google.com</div><div class="check-desc">Google mails a postcard with a verification code to your address</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp2')"><div class="check-box">✓</div><div><div class="check-title">Business name matches your signage exactly — no keyword stuffing</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp3')"><div class="check-box">✓</div><div><div class="check-title">Address and phone are correct and consistent across all platforms</div><div class="check-desc">Inconsistencies hurt your search ranking</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp4')"><div class="check-box">✓</div><div><div class="check-title">Hours completely up to date including holiday hours</div><div class="check-desc">The #1 thing customers check and the #1 thing that's wrong</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp5')"><div class="check-box">✓</div><div><div class="check-title">Business category is specific (e.g. "Yoga Studio", "Fitness Center", "Pilates Studio" not generic "Gym")</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp6')"><div class="check-box">✓</div><div><div class="check-title">Description uses your Positioning Statement from Section 1</div><div class="check-desc">Mention Long Beach. Include words people search for naturally.</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp7')"><div class="check-box">✓</div><div><div class="check-title">Minimum 10 photos uploaded by you directly</div><div class="check-desc">Exterior, studio/gym space, 3–4 class or workout photos, trainer/staff headshots</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp8')"><div class="check-box">✓</div><div><div class="check-title">Class schedule and pricing uploaded or linked</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp9')"><div class="check-box">✓</div><div><div class="check-title">Q&A section reviewed and answered</div><div class="check-desc">Add your own most common questions and answer them yourself</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp10')"><div class="check-box">✓</div><div><div class="check-title">Responding to every Google review — positive and negative</div></div></li>
+        </ul>
+        <div class="score-badge">📊 GBP Score: <span id="gbp-score">0</span> / 10</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📷</span><div class="card-title">2B. Instagram Profile</div></div>
+      <div class="card-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'ig1')"><div class="check-box">✓</div><div><div class="check-title">Username is your restaurant name or close — no numbers or underscores</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig2')"><div class="check-box">✓</div><div><div class="check-title">Profile photo is your logo — clear even at small size</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig3')"><div class="check-box">✓</div><div><div class="check-title">Bio: what you are + your differentiator + call to action (3 lines max)</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig4')"><div class="check-box">✓</div><div><div class="check-title">Link in bio goes somewhere useful — class schedule, membership signup, or website</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig5')"><div class="check-box">✓</div><div><div class="check-title">At least 9 posts on your grid</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig6')"><div class="check-box">✓</div><div><div class="check-title">Stories Highlights created: Menu, Hours/Location, Events</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🌍</span><div class="card-title">2C. Facebook, Yelp & Website</div></div>
+      <div class="card-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'fb1')"><div class="check-box">✓</div><div><div class="check-title">Facebook Page claimed and verified (not a personal profile posting as the restaurant)</div></div></li>
+          <li class="check-item" onclick="chk(this,'fb2')"><div class="check-box">✓</div><div><div class="check-title">All Facebook info matches your Google Business Profile exactly</div></div></li>
+          <li class="check-item" onclick="chk(this,'yelp1')"><div class="check-box">✓</div><div><div class="check-title">Yelp listing claimed at biz.yelp.com with current info</div></div></li>
+          <li class="check-item" onclick="chk(this,'web1')"><div class="check-box">✓</div><div><div class="check-title">Website is mobile-friendly and loads in under 3 seconds</div><div class="check-desc">Test at pagespeed.web.dev — over 70% of local restaurant searches happen on mobile</div></div></li>
+          <li class="check-item" onclick="chk(this,'web2')"><div class="check-box">✓</div><div><div class="check-title">Website class schedule and pricing are current</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s2" onclick="markDone('s2')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s3')">Next: Social Playbook →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3 ══ -->
+  <div id="page-s3" class="page">
+    <div class="sec-eyebrow">Section 3</div>
+    <div class="sec-title">Your Social Media Playbook</div>
+    <div class="sec-desc">Consistency beats brilliance. A gym that posts three times a week with decent workout videos and genuine captions will always outperform one that posts a stunning transformation photo once a month.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📝</span><div class="card-title">3A. The 5 Post Types That Work</div></div>
+      <div class="card-body">
+        <div class="post-grid">
+          <div class="post-card"><div class="post-badge tF">W — Workout Spotlight</div><div class="post-name">The Workout Spotlight</div><div class="post-desc">A great video or photo of a class, workout, or training moment. Caption focuses on the benefits or the story, not just the exercise. Should be 40% of your posts.</div><div class="post-tip">→ Film in natural light from a good angle</div></div>
+          <div class="post-card"><div class="post-badge tB">T — Trainer Spotlight</div><div class="post-name">Trainer Spotlight</div><div class="post-desc">Introduce or feature a trainer, staff member, or member moment. Credentials, specialty, why they love fitness. Authenticity and people are what build community.</div><div class="post-tip">→ Real moments beat overly polished</div></div>
+          <div class="post-card"><div class="post-badge tC">C — Community</div><div class="post-name">The Community Post</div><div class="post-desc">Anything connecting you to Long Beach — the view, the neighborhood, the season. Builds loyal regulars.</div><div class="post-tip">→ Tag other local businesses</div></div>
+          <div class="post-card"><div class="post-badge tSP">SP — Social Proof</div><div class="post-name">Social Proof</div><div class="post-desc">A customer review on a graphic, a reposted customer photo. Let your happiest customers do the talking.</div><div class="post-tip">→ Converts skeptics instantly</div></div>
+          <div class="post-card"><div class="post-badge tO">C — Challenge or Promo</div><div class="post-name">Challenge or Promo</div><div class="post-desc">Promotions, challenges, new classes, member success milestones. Scarcity and specificity make these work. Max 20% of posts.</div><div class="post-tip">→ "This weekend only" beats "available now"</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📅</span><div class="card-title">3B. Your 30-Day Content Calendar</div></div>
+      <div class="card-body">
+        <div class="callout callout-teal" style="margin-bottom:16px">
+          <div class="callout-title">How to Use This</div>
+          <p>Post 3–4 times per week. Use this as a menu to pick from, not a rigid schedule to feel guilty about.</p>
+        </div>
+        <div class="cal-week-title">📅 Week 1 — Establish Your Story</div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Introduce (or re-introduce) your gym or fitness studio. One photo, one paragraph about why you opened and what you're about.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Your signature class or most popular workout. Video or photo + the story of how it became your signature offering.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Something real happening in the kitchen today. Prep, a delivery, anything authentic.</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">A Local Moment — the view, the neighborhood, the season. Connect your gym or fitness studio to this community.</div></div>
+        <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Weekend special or "what we're excited about this weekend" post.</div></div>
+
+        <div class="cal-week-title">📅 Week 2 — Build Trust</div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">A 5-star review turned into a graphic. One sentence, big and beautiful.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">A signature move or class with a story — a trainer's specialty, a client who inspired it, a transformation moment.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Introduce a trainer or staff member. Name, role, their specialty. People join gyms partly because of the people and the energy.</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Something about Long Beach that you love. Tag another local business if it fits naturally.</div></div>
+        <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Reminder of your hours and how to find you — warm, not administrative.</div></div>
+
+        <div class="cal-week-title">📅 Week 3 — Create Desire</div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">A short video of something in action — a workout clip, a class highlight, a training moment. 15 seconds is enough.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Ask a question in your caption. "Burpees or box jumps — where do you stand?" Low effort, high engagement.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">Repost a customer photo with a thank-you tag (get permission first).</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Something seasonal. What's changing in your classes or offerings, what fitness trend is hot right now.</div></div>
+        <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">An upcoming event or "last chance" post for something ending this weekend.</div></div>
+
+        <div class="cal-week-title">📅 Week 4 — Deepen Loyalty</div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">A moment showing the care that goes into something customers take for granted.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Your best-kept secret — a class time that's less crowded, a training program that doesn't get enough buzz, or your best facility feature.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">A local shoutout — a vendor, a neighboring business, something about Long Beach worth celebrating.</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">Quote a review that speaks to something you're proud of.</div></div>
+        <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Month recap — "Thanks for a great month. Here's what's coming next."</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">#️⃣</span><div class="card-title">3C. Local Hashtags</div></div>
+      <div class="card-body">
+        <div class="hashtag-group">
+          <div class="hashtag-group-title">Don't forget to use local, specific hashtags in your posts</div>
+          <div class="hashtag-list"><span class="hashtag">#longislandpersonaltrainer</span><span class="hashtag">#womensfitnessLI</span><span class="hashtag">#valleystreamtrainer</span><span class="hashtag">#fitnessronkonkoma</span><span class="hashtag">#hyroxtrainingmassapequa</span><span class="hashtag">#footballtraininglongisland</span><span class="hashtag">#smithtownHIIT</span></div>
+        </div>
+        <div class="hashtag-group">
+          <div class="hashtag-group-title">Rotate Based on Content</div>
+          <div class="hashtag-list"><span class="hashtag">#FitnessGoals</span><span class="hashtag">#YogaCommunity</span><span class="hashtag">#StrengthTraining</span><span class="hashtag">#SupportLocal</span><span class="hashtag">#SmallBusiness</span><span class="hashtag">#TrainerLife</span><span class="hashtag">#FitnessCommunity</span><span class="hashtag">#Transformation</span><span class="hashtag">#HealthyLifestyle</span><span class="hashtag">#LongBeachFitness</span></div>
+        </div>
+        <div class="hashtag-group">
+          <div class="hashtag-group-title">For Community Posts</div>
+          <div class="hashtag-list"><span class="hashtag">#LongBeachCommunity</span><span class="hashtag">#LongBeachLife</span><span class="hashtag">#LongBeachLocal</span><span class="hashtag">#IslandLife</span><span class="hashtag">#BeachTown</span></div>
+        </div>
+        <div class="callout callout-warn">
+          <div class="callout-title">One Rule</div>
+          <p>Use 5–10 hashtags per post. Never use a hashtag you wouldn't be comfortable having a stranger find your gym through.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🗓️</span><div class="card-title">3D. Long Island Seasonal Content Hooks</div></div>
+      <div class="card-body">
+        <table class="s-table">
+          <thead><tr><th>Month</th><th>Local Hook</th><th>Content Angle</th></tr></thead>
+          <tbody>
+            <tr><td>Jan–Feb</td><td>New Year Resolution season</td><td>"This is peak fitness season. Join locals making their resolutions real." Energy, goal-setting, community support.</td></tr>
+            <tr><td>Mar–Apr</td><td>Spring into fitness, anticipation</td><td>"Summer body goals start now." New class offerings, spring fitness challenges, outdoor workouts if applicable.</td></tr>
+            <tr><td>May</td><td>Memorial Day approaching</td><td>First tourist wave. Highlight what makes you worth coming back to.</td></tr>
+            <tr><td>Jun–Aug</td><td>Summer fitness season</td><td>Outdoor workouts, beach fitness, vacation-proof routines. Post more frequently. Appeal to summer residents and travelers.</td></tr>
+            <tr><td>September</td><td>Back-to-school, fall routine</td><td>"Build your fall fitness routine." Shift back to focus on consistent members. New class schedules.</td></tr>
+            <tr><td>Oct–Nov</td><td>Holiday fitness prep in your town</td><td>Strength training, maintaining momentum, pre-holiday fitness. Build community connection. Fall energy.</td></tr>
+            <tr><td>December</td><td>Holiday season</td><td>Gift cards, holiday events, year-in-review, gratitude to regulars.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s3" onclick="markDone('s3')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s4')">Next: Paid Media →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 4 ══ -->
+  <div id="page-s4" class="page">
+    <div class="sec-eyebrow">Section 4</div>
+    <div class="sec-title">Paid Media Basics</div>
+    <div class="sec-desc">Not a guide to becoming a Facebook Ads expert. A plain-English primer on spending a small amount of money smartly — so when you boost a post, you're making a real decision, not guessing.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📢</span><div class="card-title">When to Boost — and When Not To</div></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--success);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px">✓ Boost when...</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Promoting an event with a specific date</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">A post is already getting strong organic engagement</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Announcing a new class, challenge, or special membership offer</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Heading into busy season — build awareness early</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px">✗ Don't boost when...</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">It's a generic behind-the-scenes post — these build loyalty organically</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Photo or caption quality is below your usual standard</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">There's no clear call to action in the post</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🎯</span><div class="card-title">How to Boost the Right Way</div></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;border-left:3px solid var(--teal)">
+            <div style="font-weight:700;color:var(--text1);margin-bottom:6px;font-size:14px">1. Goal</div>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Choose <strong>"More profile visits"</strong> or <strong>"More website visits."</strong> Avoid "More messages" unless you can respond within the hour.</p>
+          </div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;border-left:3px solid var(--teal)">
+            <div style="font-weight:700;color:var(--text1);margin-bottom:6px;font-size:14px">2. Audience — Never use Automatic</div>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Custom audience: <strong>Location:</strong> Long Beach, NY + 5-mile radius. <strong>Age:</strong> 18–65. <strong>Interests:</strong> fitness, wellness, yoga, gym memberships, your fitness specialty, Long Beach.</p>
+          </div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;border-left:3px solid var(--teal)">
+            <div style="font-weight:700;color:var(--text1);margin-bottom:6px;font-size:14px">3. Budget & Duration</div>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Start with <strong>$5–$10/day for 3–5 days.</strong> $25–$40 total is a reasonable test. For events, run 5–7 days leading up to the date.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">💵</span><div class="card-title">Your $50/Month Paid Media Plan</div></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-weight:700;font-size:13px;color:var(--text1);margin-bottom:4px">Week 1</div><div style="font-size:28px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:4px">$0</div><div style="font-size:11px;color:var(--text3)">Post organically. See what gets traction.</div></div>
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-weight:700;font-size:13px;color:var(--text1);margin-bottom:4px">Week 2</div><div style="font-size:28px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:4px">$20</div><div style="font-size:11px;color:var(--text3)">Boost your best post from Week 1. 4 days at $5/day.</div></div>
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-weight:700;font-size:13px;color:var(--text1);margin-bottom:4px">Week 3</div><div style="font-size:28px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:4px">$0</div><div style="font-size:11px;color:var(--text3)">Organic week. Let results inform your next post.</div></div>
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-weight:700;font-size:13px;color:var(--text1);margin-bottom:4px">Week 4</div><div style="font-size:28px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:4px">$30</div><div style="font-size:11px;color:var(--text3)">Boost an event or your strongest content.</div></div>
+        </div>
+        <div class="callout callout-teal">
+          <div class="callout-title">The One Metric That Actually Matters</div>
+          <p><strong>Website clicks or link taps.</strong> How many people were interested enough to find out more. Track it after every boost. Compare across posts. Over time you'll know exactly what's worth spending money on.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s4" onclick="markDone('s4')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s5')">Next: Common Mistakes →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 5 ══ -->
+  <div id="page-s5" class="page">
+    <div class="sec-eyebrow">Section 5</div>
+    <div class="sec-title">Common Mistakes & How to Avoid Them</div>
+    <div class="sec-desc">Read through once and be honest about which ones apply. Most gyms will recognize themselves in at least five of these.</div>
+    <div class="sec-divider"></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 01</div><div class="mistake-title">Posting once, then disappearing for two weeks</div><div class="mistake-body">One great post followed by silence does more damage than consistent mediocre posts. The algorithm stops showing your content to your own followers. Potential customers see an inactive account and wonder if you're still open.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Commit to posting at minimum twice per week and protect it like a shift you can't call out of. The 30-day calendar in Section 3 removes the "I don't know what to post" excuse entirely.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 02</div><div class="mistake-title">Letting someone who doesn't understand your brand run your social media</div><div class="mistake-body">Handing your Instagram to a teenager, a family member, or a friend who "is good with social media" is one of the most expensive mistakes a gym can make — even when it costs nothing financially. Your social media voice is your brand voice.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">If you need help posting, give them this kit. Give them Section 1D (Brand Voice), the caption templates in Section 3, and the content calendar. A template-based system works best for gym social media.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 03</div><div class="mistake-title">Using blurry, dark, or cluttered photos</div><div class="mistake-body">People decide whether to join your gym with their eyes before they walk through the door. A phone photo of a dimly-lit, messy studio communicates something about your gym — and it's not good.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Natural light. Clean background. Shoot from above or at 45 degrees for class photos. Show your studio or gym space clearly. Capture real moments with real people working out. Take three shots and pick the best one.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 04</div><div class="mistake-title">No link in bio, or a link that goes nowhere useful</div><div class="mistake-body">Your Instagram bio link is the only clickable link in your entire Instagram presence. If it's missing, broken, or goes to a homepage with no class schedule or signup option, you're losing members who were already interested enough to look.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Your bio link should go to your class schedule, membership pricing, or a simple one-page site with both. Use Linktree (linktr.ee) free if you want to link to multiple things. Check it monthly.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 05</div><div class="mistake-title">Ignoring Google reviews — especially the negative ones</div><div class="mistake-body">Not responding to negative reviews signals to every future reader that you don't care about customer experience. Responding thoughtfully — even to unfair reviews — signals professionalism and often converts skeptical readers into customers.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Set a Monday morning reminder: 10 minutes to respond to any new Google reviews from the previous week. See Section 7 for templates that make this fast and easy.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 06</div><div class="mistake-title">Writing captions that say nothing</div><div class="mistake-body">"Come work out with us!" "Great classes, great vibes!" These captions are invisible. They communicate nothing specific, create no urgency, and give the reader no reason to act.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Every caption should do at least one of three things: tell a story, share a transformation or achievement, or give the reader a clear reason to join or attend a class. Use the caption templates in Section 3 until writing with specificity becomes natural.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 07</div><div class="mistake-title">Never asking for reviews</div><div class="mistake-body">Most happy members don't leave reviews unless prompted. Meanwhile, unhappy members are highly motivated to complain. This creates a structural imbalance that only gets corrected if you actively ask.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Ask every satisfied member after class or during check-out. Train staff: "We're a small local gym and reviews really help us grow — if you had a great session, a quick Google review takes about 30 seconds." Put a QR code on your membership card or by the sign-out.</div></div>
+
+    <div class="mistake"><div class="mistake-num">Mistake 08</div><div class="mistake-title">Going quiet during slower seasons</div><div class="mistake-body">Summer season is when many gym owners go quiet on social media because members are on vacation. This is exactly backwards. Off-season is when your core members — the people who sustain you year-round — are paying the most attention and need motivation most.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">The seasonal hooks in Section 3 give you off-season content angles specifically. The tone shifts from "tourist appeal" to "community core." Both audiences matter. Neither should be abandoned.</div></div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s5" onclick="markDone('s5')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s6')">Next: 30-Day Plan →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 6 ══ -->
+  <div id="page-s6" class="page">
+    <div class="sec-eyebrow">Section 6</div>
+    <div class="sec-title">Your 30-Day Launch Plan</div>
+    <div class="sec-desc">A week-by-week sequence that tells you exactly what to do, in what order, and why. Work through it at your own pace — the goal is a clear starting sequence, not perfection in 30 days.</div>
+    <div class="sec-divider"></div>
+
+    <div class="week-block">
+      <div class="week-head"><div class="week-title">Week 1 — Fix the Foundation</div><div class="week-goal">Goal: Digital presence in order</div></div>
+      <div class="week-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w1a')"><div class="check-box">✓</div><div><div class="check-title">Complete Section 1 exercises — Customer Profile, Positioning Statement, Brand Voice</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1b')"><div class="check-box">✓</div><div><div class="check-title">Work through Section 2 checklist — aim for at least 8/10 on Google Business Profile</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1c')"><div class="check-box">✓</div><div><div class="check-title">Update GBP hours, description (use your Positioning Statement), and photos</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1d')"><div class="check-box">✓</div><div><div class="check-title">Fix Instagram bio — clear description, your location, working link</div></div></li>
+          <li class="check-item" onclick="chk(this,'w1e')"><div class="check-box">✓</div><div><div class="check-title">Respond to any unanswered Google or Yelp reviews older than two weeks</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-head"><div class="week-title">Week 2 — Start Posting Consistently</div><div class="week-goal">Goal: 3 posts published, habits established</div></div>
+      <div class="week-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w2a')"><div class="check-box">✓</div><div><div class="check-title">Post three times using Week 1 ideas from your 30-day calendar — Mon, Wed, Fri</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2b')"><div class="check-box">✓</div><div><div class="check-title">Use caption templates from Section 3 as your starting point</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2c')"><div class="check-box">✓</div><div><div class="check-title">Save your standard hashtag set in your phone's notes for easy pasting</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2d')"><div class="check-box">✓</div><div><div class="check-title">Respond to every comment within 24 hours</div></div></li>
+          <li class="check-item" onclick="chk(this,'w2e')"><div class="check-box">✓</div><div><div class="check-title">Check Instagram Insights — note which post got most reach and most engagement</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-head"><div class="week-title">Week 3 — Add the Systems</div><div class="week-goal">Goal: Tracking and lead capture live</div></div>
+      <div class="week-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w3a')"><div class="check-box">✓</div><div><div class="check-title">Copy the Marketing Tracker template and fill in this week's numbers</div></div></li>
+          <li class="check-item" onclick="chk(this,'w3b')"><div class="check-box">✓</div><div><div class="check-title">Set up your Post-Event Survey form — have it ready before your next event</div></div></li>
+          <li class="check-item" onclick="chk(this,'w3c')"><div class="check-box">✓</div><div><div class="check-title">Set up your Lead Capture Form and test it end-to-end</div></div></li>
+          <li class="check-item" onclick="chk(this,'w3d')"><div class="check-box">✓</div><div><div class="check-title">Continue posting three times this week</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-head"><div class="week-title">Week 4 — Review and Adjust</div><div class="week-goal">Goal: First data-driven decision made</div></div>
+      <div class="week-body">
+        <ul class="checklist">
+          <li class="check-item" onclick="chk(this,'w4a')"><div class="check-box">✓</div><div><div class="check-title">Open your tracker — compare Weeks 2 and 3. Is reach trending up or down?</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4b')"><div class="check-box">✓</div><div><div class="check-title">Identify your single best-performing post — your candidate for your first boost</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4c')"><div class="check-box">✓</div><div><div class="check-title">If you have $20 to spend, boost that post using Section 4 instructions</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4d')"><div class="check-box">✓</div><div><div class="check-title">Ask three customers this week to leave a Google review</div></div></li>
+          <li class="check-item" onclick="chk(this,'w4e')"><div class="check-box">✓</div><div><div class="check-title">Write down one thing that worked and one thing to do differently in Month 2</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s6" onclick="markDone('s6')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s7')">Next: Command Center →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 7 ══ -->
+  <div id="page-s7" class="page">
+    <div class="sec-eyebrow">Section 7</div>
+    <div class="sec-title">Your Marketing Command Center</div>
+    <div class="sec-desc">Your ongoing operations toolkit — tools to track whether it's working, technology to run your marketing efficiently, and a library of AI prompts personalized to your business.</div>
+    <div class="sec-divider"></div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🛠️</span><div class="card-title">Your Recommended Tool Stack</div></div>
+      <div class="card-body">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);font-weight:600;margin-bottom:10px">Content Creation</div>
+        <div class="tool-grid">
+          <div class="tool-card"><div class="tool-icon">🎨</div><div><div class="tool-name">Canva</div><div class="tool-desc">Graphics, review quote posts, event announcements, story templates</div><span class="free-badge">FREE</span></div></div>
+          <div class="tool-card"><div class="tool-icon">🎬</div><div><div class="tool-name">CapCut</div><div class="tool-desc">Editing Reels and short videos — free, simple, powerful phone app</div><span class="free-badge">FREE</span></div></div>
+        </div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);font-weight:600;margin-bottom:10px;margin-top:14px">Scheduling</div>
+        <div class="tool-grid">
+          <div class="tool-card"><div class="tool-icon">📆</div><div><div class="tool-name">Meta Business Suite</div><div class="tool-desc">Free scheduler for Facebook and Instagram. Write a week of posts in one sitting.</div><span class="free-badge">FREE</span></div></div>
+          <div class="tool-card"><div class="tool-icon">📊</div><div><div class="tool-name">Buffer</div><div class="tool-desc">Free for up to 3 channels. Clean interface, great for scheduling across platforms.</div><span class="free-badge">FREE</span></div></div>
+        </div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);font-weight:600;margin-bottom:10px;margin-top:14px">Email & Reputation</div>
+        <div class="tool-grid">
+          <div class="tool-card"><div class="tool-icon">📧</div><div><div class="tool-name">Mailchimp</div><div class="tool-desc">Free up to 500 contacts. For monthly newsletters and event announcements.</div><span class="free-badge">FREE</span></div></div>
+          <div class="tool-card"><div class="tool-icon">🔔</div><div><div class="tool-name">Google Alerts</div><div class="tool-desc">Get emailed whenever your restaurant is mentioned online. Set up in 2 minutes.</div><span class="free-badge">FREE</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">💬</span><div class="card-title">Review Response Templates</div></div>
+      <div class="card-body">
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:700;color:var(--success);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Positive Review Response</div>
+          <div class="prompt-text">"Thank you so much, [first name] — this genuinely made our day. We're really glad [specific thing they mentioned] hit the mark. We hope to see you again soon. — [Your name]"</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Critical Review Response</div>
+          <div class="prompt-text">"Thank you for taking the time to share this, [first name]. We're sorry [specific issue] didn't meet your expectations — that's not the experience we want for our guests. We'd love the chance to make it right. Please reach out to us directly at [email] and we'll take care of you. — [Your name]"</div>
+        </div>
+        <div class="callout callout-warn" style="margin-top:14px">
+          <div class="callout-title">Key Rules</div>
+          <p>Never argue. Never be defensive. Never copy-paste the same response to every review. Always mention something specific from their review. Sign with a name, not just "Management."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🤖</span><div class="card-title">Your AI Prompt Library</div></div>
+      <div class="card-body">
+        <div class="callout callout-teal" style="margin-bottom:18px">
+          <div class="callout-title">How to Use These</div>
+          <p>Copy any prompt into ChatGPT or Claude (claude.ai). Fill in the brackets. Hit send. No AI expertise needed — these are ready to use immediately.</p>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Content Creation</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text" id="pt-captions">I own a [gym / yoga studio / fitness business] called [BUSINESS NAME] in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical member is [YOUR CUSTOMER PROFILE]. Our brand voice is warm, local, and authentic. Each caption should include a call to action. Keep them under 150 words each.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Content Creation</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">Write a "behind the scenes" Instagram caption about [specific thing happening in my gym or studio this week — a class, a member milestone, a training moment]. Make it feel personal and genuine, not like an ad. Under 100 words. Tone: warm, honest, a little proud.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Content Creation</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">Give me 5 Instagram Reel ideas for a gym or fitness studio in a beachside community in Long Beach, NY. They should require nothing more than my phone, a class clip, or basic trainer footage, and basic editing. Ideas: quick workouts, member moments, trainer tips, transformations, class previews. Make them feel authentic, not overly produced.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Metrics Analysis</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">Here is my Instagram data from the last 4 weeks: [paste your weekly numbers]. Which week performed best? What patterns do you see? Based on this data, what should I do more of and less of? Give me 3 specific recommendations.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Review & Reputation</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">A customer left me this Google review: [paste review]. Write me a warm, professional response that thanks them specifically for what they mentioned and invites them back. Under 75 words.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Review & Reputation</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">A customer left me this negative Google review: [paste review]. Write me a calm, professional response that acknowledges their experience, doesn't get defensive, and invites them to contact us directly. Under 75 words.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Email & Promotion</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">Write a short email newsletter for my gym or fitness studio in Long Beach, NY. This month's theme is [season/holiday/fitness goal]. Include: one personal note from the owner, one current class highlight or member success story, one upcoming event, challenge, or promotion, one call to action. Under 300 words. Tone: warm and authentic.</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-cat">Strategy</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          <div class="prompt-text">I'm a small gym or fitness studio in Long Beach, New York with about [X] followers on Instagram and [X] Google reviews. I have about 2 hours a week for marketing. What should my top 3 priorities be right now? Be specific and practical — not generic advice.</div>
+        </div>
+
+        <div class="prompt-card" style="border:1.5px solid var(--accent)">
+          <div class="prompt-cat">⭐ Monthly Review Routine — Run These 4 Prompts in Order</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy All</button>
+          <div class="prompt-text">PROMPT 1: Here is my marketing data from this month: [paste tracker summary]. Summarize what happened in plain English — what went well, what didn't, and what the numbers suggest.
+
+PROMPT 2: Based on that summary, what are the 3 highest-priority marketing actions I should take next month?
+
+PROMPT 3: Write me a 30-day content calendar for next month for a gym or fitness studio in Long Beach, NY. The month is [month]. Include relevant seasonal fitness goals, class themes, and local context.
+
+PROMPT 4: I want to grow my Google review count from [current] to [target] over the next 30 days. Give me a specific, practical plan for how to ask for more reviews without being awkward.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s7" onclick="markDone('s7')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s8')">Next: Lead Capture →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 8 ══ -->
+  <div id="page-s8" class="page">
+    <div class="sec-eyebrow">Section 8</div>
+    <div class="sec-title">Your Lead Capture System</div>
+    <div class="sec-desc">Getting people interested in your gym is only half the job. This section gives you a system that takes an inquiry from scattered to organized in one step.</div>
+    <div class="sec-divider"></div>
+
+    <div class="callout callout-gold">
+      <div class="callout-title">Why This Exists</div>
+      <p>When a personal training inquiry or membership question arrives as a DM and you don't see it for six hours, or you lose the details in a thread, you've lost a lead — not because of your classes, but because of a communication gap a simple form fixes permanently.</p>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><span class="card-icon">📋</span><div class="card-title">8A. Your Lead Capture Form</div></div>
+      <div class="card-body">
+        <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7">Your form template is pre-built and ready to copy. When someone submits it, their details automatically populate your Lead Brief sheet — no manual entry, no lost DMs.</p>
+        <div style="background:var(--bg3);border-radius:var(--r);padding:18px;margin-bottom:16px;border:1px solid var(--border)">
+          <div style="font-weight:700;color:var(--text1);margin-bottom:12px;font-size:14px">The form collects:</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Name and contact info</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Type of inquiry</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Preferred date and time</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Fitness goals / What brings you in</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Experience level</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Injuries or limitations</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Interested in personal training?</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ How they heard about you</div>
+          </div>
+        </div>
+        <div class="callout callout-teal">
+          <div class="callout-title">Where to Share Your Form Link</div>
+          <p>Instagram bio (as one Linktree option, labeled "Personal Training Inquiry" or "Class Inquiry") · Facebook page Book Now button · Your website contact page · Instagram DM auto-reply (Settings → Business → Saved Replies)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">💬</span><div class="card-title">8B. Follow-Up Question Bank</div></div>
+      <div class="card-body">
+        <div style="background:var(--bg3);border-radius:var(--r-sm);padding:14px;margin-bottom:14px;font-style:italic;font-size:13px;color:var(--text3);border-left:3px solid var(--teal)">Start with: "Thanks so much for reaching out! A few quick questions to help us match you with the right program and trainer:"</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What are your main fitness goals right now?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What's your experience level with fitness — beginner, intermediate, or advanced?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Do you have any injuries or limitations we should know about?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Are you interested in group classes, personal training, or both?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What time of day works best for you to work out?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Have you worked with a trainer before or taken fitness classes regularly?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What brought you in to inquire about us today?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s8" onclick="markDone('s8')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('s9')">Next: Post-Event Survey →</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 9 ══ -->
+  <div id="page-s9" class="page">
+    <div class="sec-eyebrow">Section 9</div>
+    <div class="sec-title">Your Post-Event Survey System</div>
+    <div class="sec-desc">Most gyms that host events, challenges, or special classes have no idea how they were actually perceived. This system captures real feedback, builds a warm marketing list, and gives you a reason to re-engage attendees — all at once.</div>
+    <div class="sec-divider"></div>
+
+    <div class="callout callout-teal">
+      <div class="callout-title">Three Things Simultaneously</div>
+      <p><strong>Tells you what actually worked</strong> — what your customers say, not what you think. <strong>Captures a marketing list</strong> — every opt-in is a warm contact for your next announcement. <strong>Gives you a re-engagement reason</strong> — the incentive means your follow-up email is expected and welcomed.</p>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><span class="card-icon">🎁</span><div class="card-title">9A. The Three Incentive Models</div></div>
+      <div class="card-body">
+        <table class="inc-table">
+          <thead><tr><th>Model</th><th>How It Works</th><th>Best For</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Instant Discount</strong></td><td>"Fill out our 2-minute survey and get 15% off your next month membership or 2 free classes." Code shown on the thank-you page immediately.</td><td>Events that sell out - visiting trainers/teachers, competition specific training classes, evening events.</td></tr>
+            <tr><td><strong>Raffle Entry</strong></td><td>"Complete the survey for a chance to win a $50 Amazon gift card." Winner announced on Instagram within a week.</td><td>Any event type — universally appealing</td></tr>
+            <tr><td><strong>Early Access</strong></td><td>"Survey respondents get first access to tickets for our next event." High perceived value, zero cost to you.</td><td>Events that sell out — prix-fixe, holiday parties</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📱</span><div class="card-title">9B. How to Distribute the Survey</div></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">📲</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">QR Code on a Studio Card or Membership Card</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Generate a free QR code at qr-code-generator.com linking to your survey. Print on a small card or add to membership cards. Add: "Tell us what you thought — scan for a 2-minute survey and get 15% off your next month or 2 free classes."</div></div></div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">📸</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">Instagram Story During or After the Event</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Post a Story with the survey link in the last 30–60 minutes while energy is still high. Use a countdown to the incentive deadline if using a time-limited offer.</div></div></div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">🗣️</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">Verbal Ask by Trainer/Staff</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Train one person to say: "Thanks for coming today! There's a QR code here to share quick feedback — and you'll get [incentive] just for filling it out." A warm verbal ask converts people who saw the code but didn't act.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span class="card-icon">📈</span><div class="card-title">9C. Building Your Events Marketing List</div></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px">
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-size:28px;font-weight:700;color:var(--text1);font-family:'Playfair Display',serif;margin-bottom:4px">20–30</div><div style="font-size:12px;color:var(--text3)">emails after Event 1</div></div>
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-size:28px;font-weight:700;color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:4px">60–90</div><div style="font-size:12px;color:var(--text3)">after 3 events</div></div>
+          <div style="text-align:center;background:var(--bg3);border-radius:var(--r-sm);padding:16px"><div style="font-size:28px;font-weight:700;color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:4px">150+</div><div style="font-size:12px;color:var(--text3)">after 6 months</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:14px">When your next event announcement goes to that list, it lands in an inbox belonging to someone who attended your events before, enjoyed them, and opted in to hear more. That email converts to bookings at a rate no social media post or paid ad can match at your budget level.</p>
+        <div class="callout callout-dark">
+          <div class="callout-title">Managing the List</div>
+          <p>Export opted-in emails from your Google Sheet monthly and add them to a free Mailchimp account (free up to 500 contacts). Create one list called "Events List." When a new event is ready, you have a one-click send to your warmest possible audience.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="complete-row">
+      <button class="btn btn-primary btn-lg" id="done-s9" onclick="markDone('s9')">✓ Mark Section Complete</button>
+      <button class="next-link" onclick="show('dashboard')">← Back to Dashboard</button>
     </div>
   </div>
 
 </div><!-- end #main -->
 
-<!-- LOGO MODAL -->
+<!-- ══ LOGO MODAL ══ -->
 <div id="logo-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeLogoModal()">
   <div class="modal">
     <div class="modal-head">
       <div class="modal-title">Your Business Logo</div>
-      <div class="modal-sub">Upload a logo from your device or paste an image URL.</div>
+      <div class="modal-sub">Upload a logo from your device or paste an image URL. It will appear throughout your kit.</div>
     </div>
     <div class="modal-body">
       <div class="logo-upload-area" onclick="document.getElementById('logo-file').click()">
         <input type="file" id="logo-file" accept="image/*" onchange="handleLogoUpload(event)" style="display:none">
         <div class="logo-preview" id="logo-preview-big">🍽️</div>
-        <div class="logo-upload-hint"><strong>Click to upload</strong> from your device</div>
+        <div class="logo-upload-hint"><strong>Click to upload</strong> from your device<br><span style="font-size:11px">PNG, JPG, SVG — any size</span></div>
+      </div>
+      <div style="margin-top:14px">
+        <label class="field-label">Or paste an image URL</label>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <input type="text" id="logo-url-input" placeholder="https://..." style="flex:1">
+          <button class="btn btn-teal btn-sm" onclick="loadLogoFromUrl()">Load</button>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="removeLogo()">Remove</button>
+      <button class="btn btn-ghost" onclick="removeLogo()">Remove Logo</button>
       <button class="btn btn-primary" onclick="closeLogoModal()" style="margin-left:auto">Done</button>
     </div>
   </div>
 </div>
 
 <script>
+// ── CONSTANTS ────────────────────────────────────────────────────────────────
 const SECTIONS = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
-const K = 'lblk_growth_';
+const PAGES = ['dashboard','metrics','ai-setup','s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+const TITLES = {
+  dashboard:'Dashboard', metrics:'Metrics Dashboard', 'ai-setup':'AI Setup',
+  s1:'Marketing Foundation', s2:'Digital Presence', s3:'Social Media Playbook',
+  s4:'Paid Media Basics', s5:'Common Mistakes', s6:'30-Day Launch Plan',
+  s7:'Marketing Command Center', s8:'Lead Capture System', s9:'Post-Event Survey System'
+};
+
+// ── STORAGE HELPERS ──────────────────────────────────────────────────────────
+const K = 'lblk2_';
 const ls = {
   get:(k,d=null)=>{try{const v=localStorage.getItem(K+k);return v!==null?JSON.parse(v):d}catch{return d}},
   set:(k,v)=>{try{localStorage.setItem(K+k,JSON.stringify(v))}catch{}},
 };
 
-let isDark = ls.get('dark', false);
-let logoData = ls.get('logo_data', null);
+// ── STATE ────────────────────────────────────────────────────────────────────
+let completed  = ls.get('completed',{});
+let checks     = ls.get('checks',{});
+let voicePos   = ls.get('voice_pos',[]);
+let voiceNeg   = ls.get('voice_neg',[]);
+let metricsLog = ls.get('metrics_log',[]);
+let logoData   = ls.get('logo_data',null);
+let isDark     = ls.get('dark', false);
+let apiKey     = ls.get('api_key','');
 
-function toggleDark() {
-  isDark = !isDark;
-  ls.set('dark', isDark);
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  const label = isDark ? '☀️ Light' : '🌙 Dark';
-  document.getElementById('dark-toggle').textContent = label;
-  document.getElementById('dark-btn').textContent = label;
-}
-
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
 function show(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  PAGES.forEach(p => {
+    const el = document.getElementById('page-'+p);
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
   const page = document.getElementById('page-'+id);
   if(page) page.classList.add('active');
+
+  const navItems = document.querySelectorAll('.nav-item');
+  const allIds = ['dashboard','metrics','s1','s2','s3','s4','s5','s6','s7','s8','s9','ai-setup'];
+  const idx = allIds.indexOf(id);
+  if(idx >= 0 && navItems[idx]) navItems[idx].classList.add('active');
+
+  document.getElementById('topbar-title').textContent = TITLES[id] || id;
+  ls.set('current',id);
+  window.scrollTo(0,0);
+  closeSidebar();
+
+  if(id === 'metrics') initCharts();
 }
 
+// ── MOBILE ───────────────────────────────────────────────────────────────────
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open')}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
 
-function openLogoModal() {document.getElementById('logo-modal').style.display = 'flex';}
-function closeLogoModal() {document.getElementById('logo-modal').style.display = 'none';}
+// ── DARK MODE ────────────────────────────────────────────────────────────────
+function toggleDark() {
+  isDark = !isDark;
+  ls.set('dark', isDark);
+  applyTheme();
+}
+function applyTheme() {
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  const btn1 = document.getElementById('dark-toggle');
+  const btn2 = document.getElementById('dark-btn');
+  const label = isDark ? '☀️ Light' : '🌙 Dark';
+  if(btn1) btn1.textContent = label;
+  if(btn2) btn2.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  if(isDark) {
+    btn1?.classList.add('active-ctrl');
+  } else {
+    btn1?.classList.remove('active-ctrl');
+  }
+  if(charts.reach) { charts.reach.destroy(); charts.engage.destroy(); charts.gbp.destroy(); charts = {}; }
+}
+
+// ── FIELDS ───────────────────────────────────────────────────────────────────
+function sf(key) {
+  const el = document.getElementById('f-'+key);
+  if(!el) return;
+  ls.set('field_'+key, el.value);
+  if(key==='biz-name') updateBizDisplays();
+  if(key==='positioning'||key==='cust-common') updatePrompts();
+}
+
+function loadFields() {
+  const fields = ['biz-name','ig-handle','one-liner','cust-common','cust-best','cust-want','cust-problem','pos-unique','positioning'];
+  fields.forEach(k => {
+    const el = document.getElementById('f-'+k);
+    if(el) { const v=ls.get('field_'+k,''); if(v) el.value=v; }
+  });
+}
+
+function updateBizDisplays() {
+  const name = document.getElementById('f-biz-name')?.value || '';
+  const display = name || 'Not set yet';
+  const el = document.getElementById('sb-biz-name');
+  if(el) el.textContent = display;
+  const dEl = document.getElementById('dash-biz');
+  if(dEl) {
+    if(name) {
+      dEl.textContent = name;
+      document.getElementById('dash-headline').innerHTML = `Welcome back,<br><em>${name}</em>.`;
+    } else {
+      dEl.textContent = 'Set up your business in Section 1 →';
+    }
+  }
+}
+
+function updatePrompts() {
+  const name = document.getElementById('f-biz-name')?.value || '[BUSINESS NAME]';
+  const cust = document.getElementById('f-cust-common')?.value || '[YOUR CUSTOMER PROFILE]';
+  const el = document.getElementById('pt-captions');
+  if(el) el.textContent = `I own a gym or fitness studio called ${name} in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical member is ${cust}. Our brand voice is warm, local, and authentic. Each caption should include a call to action. Keep them under 150 words each.`;
+}
+
+// ── VOICE TAGS ───────────────────────────────────────────────────────────────
+function toggleTag(btn, type) {
+  const word = btn.textContent;
+  const arr = type === 'pos' ? voicePos : voiceNeg;
+  const max = 3;
+  const idx = arr.indexOf(word);
+  const selClass = type === 'pos' ? 'sel-pos' : 'sel-neg';
+
+  if(idx >= 0) {
+    arr.splice(idx,1);
+    btn.classList.remove(selClass);
+  } else {
+    if(arr.length >= max) return;
+    arr.push(word);
+    btn.classList.add(selClass);
+  }
+  ls.set(type==='pos'?'voice_pos':'voice_neg', arr);
+}
+
+function loadTags() {
+  document.querySelectorAll('#tags-positive .tag').forEach(b => {
+    if(voicePos.includes(b.textContent)) b.classList.add('sel-pos');
+  });
+  document.querySelectorAll('#tags-negative .tag').forEach(b => {
+    if(voiceNeg.includes(b.textContent)) b.classList.add('sel-neg');
+  });
+}
+
+// ── CHECKLISTS ───────────────────────────────────────────────────────────────
+function chk(li, key) {
+  const isChecked = li.classList.toggle('checked');
+  checks[key] = isChecked;
+  ls.set('checks', checks);
+  updateGBP();
+  updateStats();
+}
+
+function loadChecks() {
+  document.querySelectorAll('.check-item').forEach(li => {
+    const oc = li.getAttribute('onclick') || '';
+    const m = oc.match(/'([^']+)'\)/);
+    if(m && checks[m[1]]) li.classList.add('checked');
+  });
+}
+
+function updateGBP() {
+  const gbpKeys = ['gbp1','gbp2','gbp3','gbp4','gbp5','gbp6','gbp7','gbp8','gbp9','gbp10'];
+  const done = gbpKeys.filter(k => checks[k]).length;
+  const el = document.getElementById('gbp-score');
+  if(el) el.textContent = done;
+}
+
+// ── SECTION COMPLETE ─────────────────────────────────────────────────────────
+function markDone(id) {
+  completed[id] = true;
+  ls.set('completed', completed);
+  updateCompletionUI();
+}
+
+function updateCompletionUI() {
+  const count = SECTIONS.filter(s => completed[s]).length;
+  const pct = Math.round(count/SECTIONS.length*100);
+
+  document.getElementById('prog-fill').style.width = pct+'%';
+  document.getElementById('prog-count').textContent = count+' of '+SECTIONS.length+' complete';
+  document.getElementById('prog-pct').textContent = pct+'%';
+  document.getElementById('stat-complete').textContent = count+'/9';
+
+  SECTIONS.forEach(s => {
+    const nc = document.getElementById('nc-'+s);
+    const card = document.getElementById('card-'+s);
+    const st = document.getElementById('st-'+s);
+    const btn = document.getElementById('done-'+s);
+    const navItem = nc?.closest('.nav-item');
+
+    if(completed[s]) {
+      if(nc) nc.textContent = '✓';
+      if(navItem) navItem.classList.add('done');
+      if(card) card.classList.add('done');
+      if(st) { st.textContent = '✓ Complete'; st.classList.add('done'); }
+      if(btn) {
+        btn.textContent = '✓ Section Complete!';
+        btn.className = 'btn btn-success btn-lg';
+        btn.disabled = true;
+      }
+    }
+  });
+}
+
+function updateStats() {
+  const total = Object.values(checks).filter(Boolean).length;
+  const el = document.getElementById('stat-checks');
+  if(el) el.textContent = total;
+}
+
+// ── COPY PROMPTS ─────────────────────────────────────────────────────────────
+function copyPrompt(btn) {
+  const text = btn.closest('.prompt-card').querySelector('.prompt-text').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); }, 2000);
+  }).catch(()=>{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent='✓ Copied!';
+    setTimeout(()=>btn.textContent='Copy', 2000);
+  });
+}
+
+// ── LOGO ─────────────────────────────────────────────────────────────────────
+function openLogoModal() {
+  document.getElementById('logo-modal').style.display = 'flex';
+  renderLogoPreview();
+}
+
+function closeLogoModal() {
+  document.getElementById('logo-modal').style.display = 'none';
+}
 
 function handleLogoUpload(e) {
   const file = e.target.files[0];
@@ -734,26 +2055,312 @@ function handleLogoUpload(e) {
   reader.onload = ev => {
     logoData = ev.target.result;
     ls.set('logo_data', logoData);
+    applyLogo();
+    renderLogoPreview();
   };
   reader.readAsDataURL(file);
+}
+
+function loadLogoFromUrl() {
+  const url = document.getElementById('logo-url-input').value.trim();
+  if(!url) return;
+  logoData = url;
+  ls.set('logo_data', logoData);
+  applyLogo();
+  renderLogoPreview();
 }
 
 function removeLogo() {
   logoData = null;
   ls.set('logo_data', null);
+  applyLogo();
+  renderLogoPreview();
 }
 
+function applyLogo() {
+  const spots = ['sb-logo','dash-logo'];
+  spots.forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(logoData) {
+      el.innerHTML = `<img src="${logoData}" alt="Logo" onerror="this.parentElement.textContent='🍽️'">`;
+    } else {
+      el.textContent = '🍽️';
+    }
+  });
+}
+
+function renderLogoPreview() {
+  const el = document.getElementById('logo-preview-big');
+  if(!el) return;
+  if(logoData) {
+    el.innerHTML = `<img src="${logoData}" alt="Logo" style="width:100%;height:100%;object-fit:contain" onerror="this.parentElement.textContent='🍽️'">`;
+  } else {
+    el.textContent = '🍽️';
+  }
+}
+
+// ── API KEY ──────────────────────────────────────────────────────────────────
+function saveApiKey() {
+  apiKey = document.getElementById('api-key-input').value.trim();
+  ls.set('api_key', apiKey);
+  updateApiStatus();
+}
+
+function updateApiStatus() {
+  const badge = document.getElementById('api-status-badge');
+  const statVal = document.getElementById('stat-ai');
+  const statNote = document.getElementById('stat-ai-note');
+  if(apiKey && apiKey.startsWith('sk-ant')) {
+    if(badge) { badge.textContent = '⬤ Connected'; badge.className = 'api-status connected'; }
+    if(statVal) statVal.textContent = '✓';
+    if(statNote) statNote.textContent = 'API key connected';
+  } else {
+    if(badge) { badge.textContent = '⬤ Not connected'; badge.className = 'api-status disconnected'; }
+    if(statVal) statVal.textContent = '—';
+    if(statNote) statNote.textContent = 'Setup in AI Setup →';
+  }
+}
+
+async function testApiKey() {
+  if(!apiKey) { alert('Please enter your API key first.'); return; }
+  const resultEl = document.getElementById('api-test-result');
+  const msgEl = document.getElementById('api-test-msg');
+  resultEl.style.display = 'block';
+  msgEl.textContent = 'Testing connection...';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 50, messages: [{ role: 'user', content: 'Say "Connection successful" only.' }] })
+    });
+    const data = await res.json();
+    if(data.content?.[0]?.text) {
+      msgEl.textContent = '✓ Connection successful! Your API key is working. AI features are now enabled.';
+      resultEl.className = 'callout callout-teal';
+      updateApiStatus();
+    } else {
+      msgEl.textContent = '✗ Connection failed: ' + (data.error?.message || 'Unknown error. Check your API key.');
+      resultEl.className = 'callout callout-warn';
+    }
+  } catch(e) {
+    msgEl.textContent = '✗ Network error. Check your internet connection and try again.';
+    resultEl.className = 'callout callout-warn';
+  }
+}
+
+// ── AI BUSINESS LOOKUP ───────────────────────────────────────────────────────
+async function runLookup() {
+  if(!apiKey) { alert('Please set up your API key in AI Setup first.'); show('ai-setup'); return; }
+  const bizName = document.getElementById('lookup-biz').value.trim();
+  if(!bizName) { alert('Please enter your business name.'); return; }
+
+  document.getElementById('lookup-thinking').style.display = 'block';
+  document.getElementById('lookup-results').style.display = 'none';
+  document.getElementById('lookup-note').style.display = 'none';
+
+  const prompt = `You are a helpful assistant. I need you to find online presence information for this business: "${bizName}".
+
+Please search your knowledge for this business and provide the following if you can find them:
+1. Website URL (the official business website)
+2. Google Maps search URL (format: https://www.google.com/maps/search/BUSINESS+NAME+LOCATION)
+3. Instagram handle or profile URL
+4. Facebook page URL
+5. Yelp page URL
+
+Respond ONLY with valid JSON in this exact format, no other text:
+{
+  "website": "URL or null",
+  "maps": "URL or null", 
+  "instagram": "handle or URL or null",
+  "facebook": "URL or null",
+  "yelp": "URL or null"
+}
+
+If you cannot find a specific URL with confidence, use null for that field. Do not guess URLs.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 500, messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '{}';
+    const clean = text.replace(/```json|```/g,'').trim();
+    const result = JSON.parse(clean);
+
+    document.getElementById('lookup-thinking').style.display = 'none';
+    document.getElementById('lookup-results').style.display = 'block';
+    document.getElementById('lookup-note').style.display = 'block';
+
+    const makeLink = (val, label) => val ? `<a href="${val}" target="_blank">${val}</a>` : `<span class="ai-result-empty">Not found — add manually</span>`;
+
+    document.getElementById('lr-website').innerHTML = makeLink(result.website);
+    document.getElementById('lr-maps').innerHTML = makeLink(result.maps);
+    document.getElementById('lr-ig').innerHTML = result.instagram ? `<a href="${result.instagram.startsWith('http') ? result.instagram : 'https://instagram.com/'+result.instagram.replace('@','')}" target="_blank">${result.instagram}</a>` : '<span class="ai-result-empty">Not found — add manually</span>';
+    document.getElementById('lr-fb').innerHTML = makeLink(result.facebook);
+    document.getElementById('lr-yelp').innerHTML = makeLink(result.yelp);
+
+  } catch(e) {
+    document.getElementById('lookup-thinking').style.display = 'none';
+    alert('Lookup failed. Please check your API key and try again.');
+  }
+}
+
+// ── METRICS ──────────────────────────────────────────────────────────────────
+function saveMetrics() {
+  const fields = ['ig-followers','ig-posts','ig-reach','ig-likes','ig-comments','ig-saves','fb-likes','fb-posts','fb-reach','fb-reactions','fb-clicks','gbp-views','gbp-dirs','gbp-calls','gbp-web','gbp-reviews'];
+  const current = {};
+  fields.forEach(f => { current[f] = parseInt(document.getElementById('m-'+f)?.value)||0; });
+  ls.set('metrics_current', current);
+}
+
+function logWeek() {
+  saveMetrics();
+  const current = ls.get('metrics_current', {});
+  const week = { date: new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}), ...current };
+  metricsLog.push(week);
+  if(metricsLog.length > 12) metricsLog = metricsLog.slice(-12);
+  ls.set('metrics_log', metricsLog);
+  initCharts();
+  alert('Week logged! Your charts have been updated.');
+}
+
+function clearCurrentWeek() {
+  const fields = ['ig-followers','ig-posts','ig-reach','ig-likes','ig-comments','ig-saves','fb-likes','fb-posts','fb-reach','fb-reactions','fb-clicks','gbp-views','gbp-dirs','gbp-calls','gbp-web','gbp-reviews'];
+  fields.forEach(f => { const el = document.getElementById('m-'+f); if(el) el.value=''; });
+}
+
+function loadCurrentMetrics() {
+  const current = ls.get('metrics_current', {});
+  Object.entries(current).forEach(([f,v]) => {
+    const el = document.getElementById('m-'+f);
+    if(el && v) el.value = v;
+  });
+}
+
+let charts = {};
+function initCharts() {
+  if(charts.reach) { try{charts.reach.destroy();charts.engage.destroy();charts.gbp.destroy();}catch{} charts={}; }
+
+  const labels = metricsLog.length ? metricsLog.map(w=>w.date) : ['Week 1','Week 2','Week 3','Week 4'];
+  const reach  = metricsLog.length ? metricsLog.map(w=>w['ig-reach']||0) : [0,0,0,0];
+  const likes  = metricsLog.length ? metricsLog.map(w=>w['ig-likes']||0) : [0,0,0,0];
+  const comments = metricsLog.length ? metricsLog.map(w=>w['ig-comments']||0) : [0,0,0,0];
+  const saves  = metricsLog.length ? metricsLog.map(w=>w['ig-saves']||0) : [0,0,0,0];
+  const calls  = metricsLog.length ? metricsLog.map(w=>w['gbp-calls']||0) : [0,0,0,0];
+  const dirs   = metricsLog.length ? metricsLog.map(w=>w['gbp-dirs']||0) : [0,0,0,0];
+  const web    = metricsLog.length ? metricsLog.map(w=>w['gbp-web']||0) : [0,0,0,0];
+
+  const isDarkMode = isDark;
+  const gridColor = isDarkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+  const labelColor = isDarkMode ? '#6A7A8A' : '#8A8278';
+  const textColor = isDarkMode ? '#B0ADA8' : '#4A4540';
+
+  const baseOpts = {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ display:false }, tooltip:{ backgroundColor: isDarkMode?'#1A2D3E':'#fff', titleColor: isDarkMode?'#F0EDE8':'#1A1614', bodyColor: isDarkMode?'#B0ADA8':'#4A4540', borderColor: isDarkMode?'#243444':'#E5E1D8', borderWidth:1, padding:10, cornerRadius:8 } },
+    scales:{ x:{ grid:{ color:gridColor }, ticks:{ color:labelColor, font:{size:11} } }, y:{ grid:{ color:gridColor }, ticks:{ color:labelColor, font:{size:11} } } }
+  };
+
+  const ctx1 = document.getElementById('chart-reach')?.getContext('2d');
+  if(ctx1) charts.reach = new Chart(ctx1, { type:'line', data:{ labels, datasets:[{ data:reach, borderColor:'#1A7A8A', backgroundColor:'rgba(26,122,138,0.08)', fill:true, tension:0.4, pointBackgroundColor:'#1A7A8A', pointRadius:4 }] }, options:{...baseOpts} });
+
+  const ctx2 = document.getElementById('chart-engage')?.getContext('2d');
+  if(ctx2) charts.engage = new Chart(ctx2, { type:'bar', data:{ labels, datasets:[
+    { label:'Likes', data:likes, backgroundColor:'rgba(200,151,58,0.7)', borderRadius:4 },
+    { label:'Comments', data:comments, backgroundColor:'rgba(26,122,138,0.7)', borderRadius:4 },
+    { label:'Saves', data:saves, backgroundColor:'rgba(45,122,95,0.7)', borderRadius:4 }
+  ]}, options:{...baseOpts, plugins:{...baseOpts.plugins, legend:{ display:true, labels:{ color:textColor, font:{size:11} } }}} });
+
+  const ctx3 = document.getElementById('chart-gbp')?.getContext('2d');
+  if(ctx3) charts.gbp = new Chart(ctx3, { type:'bar', data:{ labels, datasets:[
+    { label:'Calls', data:calls, backgroundColor:'rgba(200,151,58,0.7)', borderRadius:4 },
+    { label:'Directions', data:dirs, backgroundColor:'rgba(26,122,138,0.7)', borderRadius:4 },
+    { label:'Web Clicks', data:web, backgroundColor:'rgba(45,122,95,0.7)', borderRadius:4 }
+  ]}, options:{...baseOpts, plugins:{...baseOpts.plugins, legend:{ display:true, labels:{ color:textColor, font:{size:11} } }}} });
+}
+
+// ── AI METRICS ANALYSIS ──────────────────────────────────────────────────────
+async function analyzeMetrics() {
+  if(!apiKey) { alert('Please set up your API key in AI Setup first.'); show('ai-setup'); return; }
+  if(!metricsLog.length) { alert('Please log at least one week of data first, then click Analyze.'); return; }
+
+  const outputEl = document.getElementById('analysis-output');
+  outputEl.textContent = 'Analyzing your metrics...';
+  outputEl.classList.remove('empty');
+
+  const bizName = ls.get('field_biz-name','') || 'this gym';
+  const dataStr = metricsLog.map((w,i) => `Week ${i+1} (${w.date}): IG Reach=${w['ig-reach']||0}, Likes=${w['ig-likes']||0}, Comments=${w['ig-comments']||0}, Saves=${w['ig-saves']||0}, Posts=${w['ig-posts']||0}, GBP Views=${w['gbp-views']||0}, Calls=${w['gbp-calls']||0}, Directions=${w['gbp-dirs']||0}`).join('\n');
+
+  const prompt = `You are a marketing consultant for ${bizName}, a small gym or fitness studio in Long Beach, New York. Analyze this marketing data and provide specific, actionable recommendations:
+
+${dataStr}
+
+Provide your analysis in this format:
+1. KEY TAKEAWAYS (2-3 bullet points on what the data shows)
+2. WHAT'S WORKING (1-2 specific positives)
+3. WHAT NEEDS ATTENTION (1-2 specific issues)
+4. TOP 3 ACTIONS FOR NEXT WEEK (numbered, very specific and actionable)
+
+Keep your response concise and practical. No generic advice — be specific to a small local gym or fitness studio in a seasonal beach community.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 600, messages: [{ role:'user', content: prompt }] })
+    });
+    const data = await res.json();
+    outputEl.textContent = data.content?.[0]?.text || 'Analysis failed. Please try again.';
+  } catch(e) {
+    outputEl.textContent = 'Analysis failed. Check your API key and internet connection.';
+  }
+}
+
+// ── RESET ────────────────────────────────────────────────────────────────────
 function resetAll() {
-  if(!confirm('Reset all progress?')) return;
+  if(!confirm('Reset all progress? This cannot be undone.')) return;
   Object.keys(localStorage).forEach(k => { if(k.startsWith(K)) localStorage.removeItem(k); });
   location.reload();
 }
 
+// ── INIT ─────────────────────────────────────────────────────────────────────
 function init() {
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  const label = isDark ? '☀️ Light' : '🌙 Dark';
-  if(document.getElementById('dark-toggle')) document.getElementById('dark-toggle').textContent = label;
-  if(document.getElementById('dark-btn')) document.getElementById('dark-btn').textContent = label;
+  // Apply theme
+  applyTheme();
+
+  // Load all state
+  loadFields();
+  loadTags();
+  loadChecks();
+  loadCurrentMetrics();
+
+  // Load API key input
+  if(apiKey) {
+    const inp = document.getElementById('api-key-input');
+    if(inp) inp.value = apiKey;
+  }
+
+  // Apply logo
+  if(logoData) applyLogo();
+
+  // Update all UI
+  updateCompletionUI();
+  updateGBP();
+  updateStats();
+  updateBizDisplays();
+  updatePrompts();
+  updateApiStatus();
+
+  // Restore last section
+  const last = ls.get('current','dashboard');
+  show(last);
+
+  // Init charts if on metrics page
+  if(last === 'metrics') initCharts();
 }
 
 init();

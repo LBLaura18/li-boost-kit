@@ -823,7 +823,7 @@ select option{background:var(--bg2);color:var(--text1)}
 
   <div id="sidebar-foot">
     <div class="biz-thumb">
-      <div class="biz-logo-sm" id="sb-logo">🍽️</div>
+      <div class="biz-logo-sm" id="sb-logo">💪</div>
       <div>
         <div class="biz-label">Your Business</div>
         <div class="biz-val" id="sb-biz-name">Not set yet</div>
@@ -862,7 +862,7 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="dash-headline" id="dash-headline">Your marketing<br>starts here.</div>
       <div class="dash-sub">Work through each section at your own pace. Everything saves automatically in your browser — close and return anytime.</div>
       <div class="dash-biz-display">
-        <div class="dash-biz-logo" id="dash-logo">🍽️</div>
+        <div class="dash-biz-logo" id="dash-logo">💪</div>
         <div>
           <div class="dash-biz-name" id="dash-biz">Set up your business in Section 1 →</div>
         </div>
@@ -1048,7 +1048,7 @@ select option{background:var(--bg2);color:var(--text1)}
         <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7">Enter your business name and click Lookup. Claude will search for your website, Google Maps listing, Instagram, Facebook, and Yelp — and return direct links so you can verify and update each one.</p>
 
         <div style="display:flex;gap:10px;margin-bottom:16px">
-          <input type="text" id="lookup-biz" placeholder="e.g. The Long Beach Grille, Long Beach NY" style="flex:1">
+          <input type="text" id="lookup-biz" placeholder="e.g. Power + Precision Gym, Long Beach NY" style="flex:1">
           <button class="btn btn-accent" onclick="runLookup()">🔍 Find My Business</button>
         </div>
 
@@ -1102,16 +1102,16 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="card-body">
         <div class="field">
           <label class="field-label">Business Name</label>
-          <input type="text" id="f-biz-name" placeholder="e.g. The Long Beach Grille" oninput="sf('biz-name')">
+          <input type="text" id="f-biz-name" placeholder="e.g. Power + Precision Gym" oninput="sf('biz-name')">
         </div>
         <div class="field">
           <label class="field-label">Instagram Handle</label>
           <input type="text" id="f-ig-handle" placeholder="@yourbusiness" oninput="sf('ig-handle')">
         </div>
         <div class="field">
-          <label class="field-label">Your restaurant in one sentence</label>
-          <div class="field-hint">What are you? Be specific — not "great food" but your actual type and vibe.</div>
-          <textarea id="f-one-liner" placeholder="e.g. A casual Italian seafood restaurant on Long Beach serving house-made pasta and locally-caught fish since 2018." oninput="sf('one-liner')"></textarea>
+          <label class="field-label">Your gym or fitness business in one sentence</label>
+          <div class="field-hint">What are you? Be specific — not "fitness" but your actual type and vibe.</div>
+          <textarea id="f-one-liner" placeholder="e.g. A boutique CrossFit gym on Long Beach focused on functional strength training for busy professionals. Or: A yoga studio specializing in trauma-informed vinyasa for women over 40." oninput="sf('one-liner')"></textarea>
         </div>
       </div>
     </div>
@@ -1122,7 +1122,7 @@ select option{background:var(--bg2);color:var(--text1)}
         <div class="field">
           <label class="field-label">Who is your most common customer right now?</label>
           <div class="field-hint">Age range, who they come with, how often, what they order</div>
-          <textarea id="f-cust-common" placeholder="e.g. Locals in their 30s–50s, dinner 2–3x/month, usually couples or small groups, order seafood and a bottle of wine." oninput="sf('cust-common')"></textarea>
+          <textarea id="f-cust-common" placeholder="e.g. Women 25–45, working professionals, come 3–4x/week for morning classes before work. Mix of beginners and experienced gym-goers." oninput="sf('cust-common')"></textarea>
         </div>
         <div class="field">
           <label class="field-label">Who is your best customer?</label>
@@ -1131,11 +1131,11 @@ select option{background:var(--bg2);color:var(--text1)}
         </div>
         <div class="field">
           <label class="field-label">Who do you want more of?</label>
-          <textarea id="f-cust-want" placeholder="e.g. Summer tourists discovering Long Beach for the first time, and young couples looking for a date night spot." oninput="sf('cust-want')"></textarea>
+          <textarea id="f-cust-want" placeholder="e.g. High school athletes who aspire to play in college and need personalized training plans." oninput="sf('cust-want')"></textarea>
         </div>
         <div class="field">
-          <label class="field-label">What problem does your restaurant solve for them?</label>
-          <textarea id="f-cust-problem" placeholder="e.g. We're the place Long Beach locals take out-of-town guests when they want to impress without being stuffy." oninput="sf('cust-problem')"></textarea>
+          <label class="field-label">What problem does your gym or fitness business solve for them?</label>
+          <textarea id="f-cust-problem" placeholder="e.g. Our staff has strong credentials and decades of experience at the amateur and pro level of athletic training. We are not your typical big-box gym." oninput="sf('cust-problem')"></textarea>
         </div>
       </div>
     </div>
@@ -1145,11 +1145,11 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="card-body">
         <div class="callout callout-teal" style="margin-bottom:16px">
           <div class="callout-title">Why This Matters</div>
-          <p>"Great food and great service" is not positioning. Every restaurant claims that. Positioning is the thing only you can say — it goes in your Instagram bio, Google Business Profile, and every email newsletter you send.</p>
+          <p>"Great fitness classes" is not positioning. Every gym claims that. Positioning is the thing only you can say — it goes in your Instagram bio, Google Business Profile, and every email newsletter you send.</p>
         </div>
         <div class="field">
-          <label class="field-label">What do you do that no other Long Beach restaurant does, or does as well?</label>
-          <textarea id="f-pos-unique" placeholder="e.g. The only restaurant on the island serving authentic Sicilian recipes from a family cookbook dating back to 1952." oninput="sf('pos-unique')"></textarea>
+          <label class="field-label">What do you do that no other Long Beach gym, fitness studio, or trainer does, or does as well?</label>
+          <textarea id="f-pos-unique" placeholder="e.g. The only gym on Long Beach with personalized strength training for post-injury recovery, run by certified physical therapists. Or: The only all-women's martial arts studio in Long Island with a focus on self-defense and confidence-building." oninput="sf('pos-unique')"></textarea>
         </div>
         <div class="field">
           <label class="field-label">Your Positioning Statement</label>
@@ -1163,7 +1163,7 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="card-head"><span class="card-icon">🗣️</span><div class="card-title">1D. Brand Voice</div></div>
       <div class="card-body">
         <div class="field">
-          <label class="field-label">Pick 3 words that describe how your restaurant sounds at its best</label>
+          <label class="field-label">Pick 3 words that describe how your gym or fitness brand sounds at its best</label>
           <div class="tag-cloud" id="tags-positive">
             <button class="tag" onclick="toggleTag(this,'pos')">Warm</button>
             <button class="tag" onclick="toggleTag(this,'pos')">Friendly</button>
@@ -1217,17 +1217,17 @@ select option{background:var(--bg2);color:var(--text1)}
       <div class="card-body">
         <div class="callout callout-gold" style="margin-bottom:14px">
           <div class="callout-title">⚡ Highest Priority</div>
-          <p>Your Google Business Profile is your most valuable free digital real estate. It's what appears when someone searches your restaurant name or "restaurants in Long Beach." Most have it half-set-up or badly outdated.</p>
+          <p>Your Google Business Profile is your most valuable free digital real estate. It's what appears when someone searches your gym name or "gyms in Long Beach" or "yoga classes near me." Most have it half-set-up or badly outdated.</p>
         </div>
         <ul class="checklist">
           <li class="check-item" onclick="chk(this,'gbp1')"><div class="check-box">✓</div><div><div class="check-title">Claimed and verified at business.google.com</div><div class="check-desc">Google mails a postcard with a verification code to your address</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp2')"><div class="check-box">✓</div><div><div class="check-title">Business name matches your signage exactly — no keyword stuffing</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp3')"><div class="check-box">✓</div><div><div class="check-title">Address and phone are correct and consistent across all platforms</div><div class="check-desc">Inconsistencies hurt your search ranking</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp4')"><div class="check-box">✓</div><div><div class="check-title">Hours completely up to date including holiday hours</div><div class="check-desc">The #1 thing customers check and the #1 thing that's wrong</div></div></li>
-          <li class="check-item" onclick="chk(this,'gbp5')"><div class="check-box">✓</div><div><div class="check-title">Business category is specific (e.g. "Italian Restaurant" not "Restaurant")</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp5')"><div class="check-box">✓</div><div><div class="check-title">Business category is specific (e.g. "Yoga Studio", "Fitness Center", "Pilates Studio" not generic "Gym")</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp6')"><div class="check-box">✓</div><div><div class="check-title">Description uses your Positioning Statement from Section 1</div><div class="check-desc">Mention Long Beach. Include words people search for naturally.</div></div></li>
-          <li class="check-item" onclick="chk(this,'gbp7')"><div class="check-box">✓</div><div><div class="check-title">Minimum 10 photos uploaded by you directly</div><div class="check-desc">Exterior, interior, 3–4 food photos, at least 1 staff/kitchen shot</div></div></li>
-          <li class="check-item" onclick="chk(this,'gbp8')"><div class="check-box">✓</div><div><div class="check-title">Menu uploaded or linked</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp7')"><div class="check-box">✓</div><div><div class="check-title">Minimum 10 photos uploaded by you directly</div><div class="check-desc">Exterior, studio/gym space, 3–4 class or workout photos, trainer/staff headshots</div></div></li>
+          <li class="check-item" onclick="chk(this,'gbp8')"><div class="check-box">✓</div><div><div class="check-title">Class schedule and pricing uploaded or linked</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp9')"><div class="check-box">✓</div><div><div class="check-title">Q&A section reviewed and answered</div><div class="check-desc">Add your own most common questions and answer them yourself</div></div></li>
           <li class="check-item" onclick="chk(this,'gbp10')"><div class="check-box">✓</div><div><div class="check-title">Responding to every Google review — positive and negative</div></div></li>
         </ul>
@@ -1242,7 +1242,7 @@ select option{background:var(--bg2);color:var(--text1)}
           <li class="check-item" onclick="chk(this,'ig1')"><div class="check-box">✓</div><div><div class="check-title">Username is your restaurant name or close — no numbers or underscores</div></div></li>
           <li class="check-item" onclick="chk(this,'ig2')"><div class="check-box">✓</div><div><div class="check-title">Profile photo is your logo — clear even at small size</div></div></li>
           <li class="check-item" onclick="chk(this,'ig3')"><div class="check-box">✓</div><div><div class="check-title">Bio: what you are + your differentiator + call to action (3 lines max)</div></div></li>
-          <li class="check-item" onclick="chk(this,'ig4')"><div class="check-box">✓</div><div><div class="check-title">Link in bio goes somewhere useful — menu, reservations, or website</div></div></li>
+          <li class="check-item" onclick="chk(this,'ig4')"><div class="check-box">✓</div><div><div class="check-title">Link in bio goes somewhere useful — class schedule, membership signup, or website</div></div></li>
           <li class="check-item" onclick="chk(this,'ig5')"><div class="check-box">✓</div><div><div class="check-title">At least 9 posts on your grid</div></div></li>
           <li class="check-item" onclick="chk(this,'ig6')"><div class="check-box">✓</div><div><div class="check-title">Stories Highlights created: Menu, Hours/Location, Events</div></div></li>
         </ul>
@@ -1257,7 +1257,7 @@ select option{background:var(--bg2);color:var(--text1)}
           <li class="check-item" onclick="chk(this,'fb2')"><div class="check-box">✓</div><div><div class="check-title">All Facebook info matches your Google Business Profile exactly</div></div></li>
           <li class="check-item" onclick="chk(this,'yelp1')"><div class="check-box">✓</div><div><div class="check-title">Yelp listing claimed at biz.yelp.com with current info</div></div></li>
           <li class="check-item" onclick="chk(this,'web1')"><div class="check-box">✓</div><div><div class="check-title">Website is mobile-friendly and loads in under 3 seconds</div><div class="check-desc">Test at pagespeed.web.dev — over 70% of local restaurant searches happen on mobile</div></div></li>
-          <li class="check-item" onclick="chk(this,'web2')"><div class="check-box">✓</div><div><div class="check-title">Website menu and hours are current</div></div></li>
+          <li class="check-item" onclick="chk(this,'web2')"><div class="check-box">✓</div><div><div class="check-title">Website class schedule and pricing are current</div></div></li>
         </ul>
       </div>
     </div>
@@ -1272,18 +1272,18 @@ select option{background:var(--bg2);color:var(--text1)}
   <div id="page-s3" class="page">
     <div class="sec-eyebrow">Section 3</div>
     <div class="sec-title">Your Social Media Playbook</div>
-    <div class="sec-desc">Consistency beats brilliance. A restaurant that posts three times a week with decent photos and genuine captions will always outperform one that posts a stunning photo once a month.</div>
+    <div class="sec-desc">Consistency beats brilliance. A gym that posts three times a week with decent workout videos and genuine captions will always outperform one that posts a stunning transformation photo once a month.</div>
     <div class="sec-divider"></div>
 
     <div class="card">
       <div class="card-head"><span class="card-icon">📝</span><div class="card-title">3A. The 5 Post Types That Work</div></div>
       <div class="card-body">
         <div class="post-grid">
-          <div class="post-card"><div class="post-badge tF">F — Food Hero</div><div class="post-name">The Food Hero</div><div class="post-desc">A great photo or video of a dish. Caption focuses on the story, not just the name. Should be 40% of your posts.</div><div class="post-tip">→ Shoot in natural light near a window</div></div>
-          <div class="post-card"><div class="post-badge tB">B — Behind Scenes</div><div class="post-name">Behind the Scenes</div><div class="post-desc">Kitchen prep, staff moments, anything real. Authenticity builds trust in a way no ad ever can.</div><div class="post-tip">→ Doesn't need to look polished</div></div>
+          <div class="post-card"><div class="post-badge tF">W — Workout Spotlight</div><div class="post-name">The Workout Spotlight</div><div class="post-desc">A great video or photo of a class, workout, or training moment. Caption focuses on the benefits or the story, not just the exercise. Should be 40% of your posts.</div><div class="post-tip">→ Film in natural light from a good angle</div></div>
+          <div class="post-card"><div class="post-badge tB">T — Trainer Spotlight</div><div class="post-name">Trainer Spotlight</div><div class="post-desc">Introduce or feature a trainer, staff member, or member moment. Credentials, specialty, why they love fitness. Authenticity and people are what build community.</div><div class="post-tip">→ Real moments beat overly polished</div></div>
           <div class="post-card"><div class="post-badge tC">C — Community</div><div class="post-name">The Community Post</div><div class="post-desc">Anything connecting you to Long Beach — the view, the neighborhood, the season. Builds loyal regulars.</div><div class="post-tip">→ Tag other local businesses</div></div>
           <div class="post-card"><div class="post-badge tSP">SP — Social Proof</div><div class="post-name">Social Proof</div><div class="post-desc">A customer review on a graphic, a reposted customer photo. Let your happiest customers do the talking.</div><div class="post-tip">→ Converts skeptics instantly</div></div>
-          <div class="post-card"><div class="post-badge tO">O — Offer/Event</div><div class="post-name">Offer or Event</div><div class="post-desc">Promotions, specials, new items, events. Scarcity and specificity make these work. Max 20% of posts.</div><div class="post-tip">→ "This weekend only" beats "available now"</div></div>
+          <div class="post-card"><div class="post-badge tO">C — Challenge or Promo</div><div class="post-name">Challenge or Promo</div><div class="post-desc">Promotions, challenges, new classes, member success milestones. Scarcity and specificity make these work. Max 20% of posts.</div><div class="post-tip">→ "This weekend only" beats "available now"</div></div>
         </div>
       </div>
     </div>
@@ -1296,30 +1296,30 @@ select option{background:var(--bg2);color:var(--text1)}
           <p>Post 3–4 times per week. Use this as a menu to pick from, not a rigid schedule to feel guilty about.</p>
         </div>
         <div class="cal-week-title">📅 Week 1 — Establish Your Story</div>
-        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Behind Scenes</span></div><div class="cal-idea">Introduce (or re-introduce) your restaurant. One photo, one paragraph about why you opened and what you're about.</div></div>
-        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Food Hero</span></div><div class="cal-idea">Your most iconic dish. Photo + the story of how it ended up on the menu.</div></div>
-        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Behind Scenes</span></div><div class="cal-idea">Something real happening in the kitchen today. Prep, a delivery, anything authentic.</div></div>
-        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">A Long Beach moment — the view, the neighborhood, the season. Connect your restaurant to this place.</div></div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Introduce (or re-introduce) your gym or fitness studio. One photo, one paragraph about why you opened and what you're about.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Your signature class or most popular workout. Video or photo + the story of how it became your signature offering.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Something real happening in the kitchen today. Prep, a delivery, anything authentic.</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">A Local Moment — the view, the neighborhood, the season. Connect your gym or fitness studio to this community.</div></div>
         <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Weekend special or "what we're excited about this weekend" post.</div></div>
 
         <div class="cal-week-title">📅 Week 2 — Build Trust</div>
         <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">A 5-star review turned into a graphic. One sentence, big and beautiful.</div></div>
-        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Food Hero</span></div><div class="cal-idea">A dish with a story — a family recipe, a seasonal ingredient, a customer who inspired it.</div></div>
-        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Behind Scenes</span></div><div class="cal-idea">Introduce a staff member. Name, role, their favorite thing on the menu. People eat at restaurants partly because of the people.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">A signature move or class with a story — a trainer's specialty, a client who inspired it, a transformation moment.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">Introduce a trainer or staff member. Name, role, their specialty. People join gyms partly because of the people and the energy.</div></div>
         <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Something about Long Beach that you love. Tag another local business if it fits naturally.</div></div>
         <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Reminder of your hours and how to find you — warm, not administrative.</div></div>
 
         <div class="cal-week-title">📅 Week 3 — Create Desire</div>
-        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tF">Food Hero</span></div><div class="cal-idea">A short video of something being made — sauce, a cocktail, anything with visual movement. 15 seconds is enough.</div></div>
-        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Ask a question in your caption. "Soup or salad — where do you stand?" Low effort, high engagement.</div></div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">A short video of something in action — a workout clip, a class highlight, a training moment. 15 seconds is enough.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Ask a question in your caption. "Burpees or box jumps — where do you stand?" Low effort, high engagement.</div></div>
         <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">Repost a customer photo with a thank-you tag (get permission first).</div></div>
-        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tF">Food Hero</span></div><div class="cal-idea">Something seasonal. What's changing on the menu, what ingredient is at peak right now.</div></div>
+        <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Something seasonal. What's changing in your classes or offerings, what fitness trend is hot right now.</div></div>
         <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">An upcoming event or "last chance" post for something ending this weekend.</div></div>
 
         <div class="cal-week-title">📅 Week 4 — Deepen Loyalty</div>
-        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Behind Scenes</span></div><div class="cal-idea">A moment showing the care that goes into something customers take for granted.</div></div>
-        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Food Hero</span></div><div class="cal-idea">Your best-kept secret — a dish that doesn't get ordered enough, or the table with the best view.</div></div>
-        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">A local shoutout — a vendor, a neighboring business, something about Long Beach worth celebrating.</div></div>
+        <div class="cal-item"><div class="cal-day">Mon</div><div><span class="cal-type tB">Trainer Spotlight</span></div><div class="cal-idea">A moment showing the care that goes into something customers take for granted.</div></div>
+        <div class="cal-item"><div class="cal-day">Tue</div><div><span class="cal-type tF">Workout Spotlight</span></div><div class="cal-idea">Your best-kept secret — a class time that's less crowded, a training program that doesn't get enough buzz, or your best facility feature.</div></div>
+        <div class="cal-item"><div class="cal-day">Wed</div><div><span class="cal-type tC">Community</span></div><div class="cal-idea">Something about your community worth celebrating — a local business, a neighborhood moment, the people who make it special.</div></div>
         <div class="cal-item"><div class="cal-day">Thu</div><div><span class="cal-type tSP">Social Proof</span></div><div class="cal-idea">Quote a review that speaks to something you're proud of.</div></div>
         <div class="cal-item"><div class="cal-day">Fri</div><div><span class="cal-type tO">Offer/Event</span></div><div class="cal-idea">Month recap — "Thanks for a great month. Here's what's coming next."</div></div>
       </div>
@@ -1334,7 +1334,7 @@ select option{background:var(--bg2);color:var(--text1)}
         </div>
         <div class="hashtag-group">
           <div class="hashtag-group-title">Rotate Based on Content</div>
-          <div class="hashtag-list"><span class="hashtag">#NYCFood</span><span class="hashtag">#LocalEats</span><span class="hashtag">#SupportLocal</span><span class="hashtag">#SmallBusiness</span><span class="hashtag">#ChefLife</span><span class="hashtag">#FoodPhotography</span><span class="hashtag">#DateNight</span><span class="hashtag">#FamilyDinner</span><span class="hashtag">#HappyHour</span><span class="hashtag">#WeekendBrunch</span></div>
+          <div class="hashtag-list"><span class="hashtag">#FitnessGoals</span><span class="hashtag">#YogaCommunity</span><span class="hashtag">#StrengthTraining</span><span class="hashtag">#SupportLocal</span><span class="hashtag">#SmallBusiness</span><span class="hashtag">#TrainerLife</span><span class="hashtag">#FitnessCommunity</span><span class="hashtag">#Transformation</span><span class="hashtag">#HealthyLifestyle</span><span class="hashtag">#LongBeachFitness</span></div>
         </div>
         <div class="hashtag-group">
           <div class="hashtag-group-title">For Community Posts</div>
@@ -1342,23 +1342,23 @@ select option{background:var(--bg2);color:var(--text1)}
         </div>
         <div class="callout callout-warn">
           <div class="callout-title">One Rule</div>
-          <p>Use 5–10 hashtags per post. Never use a hashtag you wouldn't be comfortable having a stranger find your restaurant through.</p>
+          <p>Use 5–10 hashtags per post. Never use a hashtag you wouldn't be comfortable having a stranger find your gym through.</p>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-head"><span class="card-icon">🗓️</span><div class="card-title">3D. Long Beach Seasonal Content Hooks</div></div>
+      <div class="card-head"><span class="card-icon">🗓️</span><div class="card-title">3D. Long Island Seasonal Content Hooks</div></div>
       <div class="card-body">
         <table class="s-table">
           <thead><tr><th>Month</th><th>Local Hook</th><th>Content Angle</th></tr></thead>
           <tbody>
-            <tr><td>Jan–Feb</td><td>Off-season, locals only</td><td>"This is our favorite time of year. The real Long Beach." Warmth, regulars, comfort food.</td></tr>
-            <tr><td>Mar–Apr</td><td>Spring preview, anticipation</td><td>"We're getting ready for summer." New menu items, outdoor seating returning.</td></tr>
+            <tr><td>Jan–Feb</td><td>New Year Resolution season</td><td>"This is peak fitness season. Join locals making their resolutions real." Energy, goal-setting, community support.</td></tr>
+            <tr><td>Mar–Apr</td><td>Spring into fitness, anticipation</td><td>"Summer body goals start now." New class offerings, spring fitness challenges, outdoor workouts if applicable.</td></tr>
             <tr><td>May</td><td>Memorial Day approaching</td><td>First tourist wave. Highlight what makes you worth coming back to.</td></tr>
-            <tr><td>Jun–Aug</td><td>Full summer season</td><td>Tourist-facing content. Best dishes, ambiance, outdoor experience. Post more frequently.</td></tr>
-            <tr><td>September</td><td>Labor Day, winding down</td><td>"For the locals who never left." Shift back to neighborhood restaurant tone.</td></tr>
-            <tr><td>Oct–Nov</td><td>Fall in Long Beach</td><td>Comfort, seasonal menu, cozy atmosphere. Fall beach town is underrated — lean into it.</td></tr>
+            <tr><td>Jun–Aug</td><td>Summer fitness season</td><td>Outdoor workouts, beach fitness, vacation-proof routines. Post more frequently. Appeal to summer residents and travelers.</td></tr>
+            <tr><td>September</td><td>Back-to-school, fall routine</td><td>"Build your fall fitness routine." Shift back to focus on consistent members. New class schedules.</td></tr>
+            <tr><td>Oct–Nov</td><td>Holiday fitness prep in your town</td><td>Strength training, maintaining momentum, pre-holiday fitness. Build community connection. Fall energy.</td></tr>
             <tr><td>December</td><td>Holiday season</td><td>Gift cards, holiday events, year-in-review, gratitude to regulars.</td></tr>
           </tbody>
         </table>
@@ -1387,7 +1387,7 @@ select option{background:var(--bg2);color:var(--text1)}
             <div style="display:flex;flex-direction:column;gap:8px">
               <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Promoting an event with a specific date</div>
               <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">A post is already getting strong organic engagement</div>
-              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Announcing a new menu item or seasonal special</div>
+              <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Announcing a new class, challenge, or special membership offer</div>
               <div style="font-size:13px;color:var(--text2);padding:9px 12px;background:var(--bg3);border-radius:var(--r-sm)">Heading into busy season — build awareness early</div>
             </div>
           </div>
@@ -1413,7 +1413,7 @@ select option{background:var(--bg2);color:var(--text1)}
           </div>
           <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;border-left:3px solid var(--teal)">
             <div style="font-weight:700;color:var(--text1);margin-bottom:6px;font-size:14px">2. Audience — Never use Automatic</div>
-            <p style="font-size:13px;color:var(--text2);line-height:1.6">Custom audience: <strong>Location:</strong> Long Beach, NY + 5-mile radius. <strong>Age:</strong> 25–60. <strong>Interests:</strong> dining out, local restaurants, your cuisine type, Long Beach.</p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Custom audience: <strong>Location:</strong> Long Beach, NY + 5-mile radius. <strong>Age:</strong> 18–65. <strong>Interests:</strong> fitness, wellness, yoga, gym memberships, your fitness specialty, Long Beach.</p>
           </div>
           <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;border-left:3px solid var(--teal)">
             <div style="font-weight:700;color:var(--text1);margin-bottom:6px;font-size:14px">3. Budget & Duration</div>
@@ -1449,24 +1449,24 @@ select option{background:var(--bg2);color:var(--text1)}
   <div id="page-s5" class="page">
     <div class="sec-eyebrow">Section 5</div>
     <div class="sec-title">Common Mistakes & How to Avoid Them</div>
-    <div class="sec-desc">Read through once and be honest about which ones apply. Most restaurants will recognize themselves in at least five of these.</div>
+    <div class="sec-desc">Read through once and be honest about which ones apply. Most gyms will recognize themselves in at least five of these.</div>
     <div class="sec-divider"></div>
 
     <div class="mistake"><div class="mistake-num">Mistake 01</div><div class="mistake-title">Posting once, then disappearing for two weeks</div><div class="mistake-body">One great post followed by silence does more damage than consistent mediocre posts. The algorithm stops showing your content to your own followers. Potential customers see an inactive account and wonder if you're still open.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Commit to posting at minimum twice per week and protect it like a shift you can't call out of. The 30-day calendar in Section 3 removes the "I don't know what to post" excuse entirely.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 02</div><div class="mistake-title">Letting someone who doesn't understand your brand run your social media</div><div class="mistake-body">Handing your Instagram to a teenager, a family member, or a friend who "is good with social media" is one of the most expensive mistakes a restaurant can make — even when it costs nothing financially. Your social media voice is your brand voice.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">If you need help posting, give them this kit. Give them Section 1D (Brand Voice), the caption templates in Section 3, and the content calendar. Anyone can follow a system. Not everyone can create one.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 02</div><div class="mistake-title">Letting someone who doesn't understand your brand run your social media</div><div class="mistake-body">Handing your Instagram to a teenager, a family member, or a friend who "is good with social media" is one of the most expensive mistakes a gym can make — even when it costs nothing financially. Your social media voice is your brand voice.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">If you need help posting, give them this kit. Give them Section 1D (Brand Voice), the caption templates in Section 3, and the content calendar. A template-based system works best for gym social media.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 03</div><div class="mistake-title">Using blurry, dark, or cluttered photos</div><div class="mistake-body">People eat with their eyes before they eat with their mouths. A phone photo taken under fluorescent lights with a messy table in the background communicates something about your restaurant — and it's not good.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Natural light. Clean background. Shoot from above or at 45 degrees. Never use flash. Move the dish to a window. Take three photos and pick the best one. This takes 90 extra seconds.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 03</div><div class="mistake-title">Using blurry, dark, or cluttered photos</div><div class="mistake-body">People decide whether to join your gym with their eyes before they walk through the door. A phone photo of a dimly-lit, messy studio communicates something about your gym — and it's not good.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Natural light. Clean background. Shoot from above or at 45 degrees for class photos. Show your studio or gym space clearly. Capture real moments with real people working out. Take three shots and pick the best one.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 04</div><div class="mistake-title">No link in bio, or a link that goes nowhere useful</div><div class="mistake-body">Your Instagram bio link is the only clickable link in your entire Instagram presence. If it's missing, broken, or goes to a homepage with no clear next step, you're losing customers who were already interested enough to look.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Your bio link should go to your menu, reservation system, or a simple one-page site with both. Use Linktree (linktr.ee) free if you want to link to multiple things. Check it monthly.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 04</div><div class="mistake-title">No link in bio, or a link that goes nowhere useful</div><div class="mistake-body">Your Instagram bio link is the only clickable link in your entire Instagram presence. If it's missing, broken, or goes to a homepage with no class schedule or signup option, you're losing members who were already interested enough to look.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Your bio link should go to your class schedule, membership pricing, or a simple one-page site with both. Use Linktree (linktr.ee) free if you want to link to multiple things. Check it monthly.</div></div>
 
     <div class="mistake"><div class="mistake-num">Mistake 05</div><div class="mistake-title">Ignoring Google reviews — especially the negative ones</div><div class="mistake-body">Not responding to negative reviews signals to every future reader that you don't care about customer experience. Responding thoughtfully — even to unfair reviews — signals professionalism and often converts skeptical readers into customers.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Set a Monday morning reminder: 10 minutes to respond to any new Google reviews from the previous week. See Section 7 for templates that make this fast and easy.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 06</div><div class="mistake-title">Writing captions that say nothing</div><div class="mistake-body">"Come check us out!" "Great food, great vibes!" These captions are invisible. They communicate nothing specific, create no desire, and give the reader no reason to act.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Every caption should do at least one of three things: tell a story, share something specific and interesting, or give the reader a clear reason to do something. Use the caption templates in Section 3 until writing with specificity becomes natural.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 06</div><div class="mistake-title">Writing captions that say nothing</div><div class="mistake-body">"Come work out with us!" "Great classes, great vibes!" These captions are invisible. They communicate nothing specific, create no urgency, and give the reader no reason to act.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Every caption should do at least one of three things: tell a story, share a transformation or achievement, or give the reader a clear reason to join or attend a class. Use the caption templates in Section 3 until writing with specificity becomes natural.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 07</div><div class="mistake-title">Never asking for reviews</div><div class="mistake-body">Most happy customers don't leave reviews unless prompted. Meanwhile, unhappy customers are highly motivated. This creates a structural imbalance that only gets corrected if you actively ask.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Ask every satisfied table directly. Train staff: "We're a small local place and reviews really help us — if you enjoyed tonight, a quick Google review takes about 30 seconds." Put a QR code on your check presenter.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 07</div><div class="mistake-title">Never asking for reviews</div><div class="mistake-body">Most happy members don't leave reviews unless prompted. Meanwhile, unhappy members are highly motivated to complain. This creates a structural imbalance that only gets corrected if you actively ask.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">Ask every satisfied member after class or during check-out. Train staff: "We're a small local gym and reviews really help us grow — if you had a great session, a quick Google review takes about 30 seconds." Put a QR code on your membership card or by the sign-out.</div></div>
 
-    <div class="mistake"><div class="mistake-num">Mistake 08</div><div class="mistake-title">Going quiet during the Long Beach off-season</div><div class="mistake-body">The off-season is when most restaurants go quiet on social media. This is exactly backwards. The off-season is when your regulars — the people who sustain you year-round — are paying the most attention and your consistency relative to competitors is most visible.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">The seasonal hooks in Section 3 give you off-season content angles specifically. The tone shifts from "tourist attraction" to "neighborhood restaurant." Both audiences matter. Neither should be abandoned.</div></div>
+    <div class="mistake"><div class="mistake-num">Mistake 08</div><div class="mistake-title">Going quiet during slower seasons</div><div class="mistake-body">Summer season is when many gym owners go quiet on social media because members are on vacation. This is exactly backwards. Off-season is when your core members — the people who sustain you year-round — are paying the most attention and need motivation most.</div><div class="fix-lbl">✓ The Fix</div><div class="fix-text">The seasonal hooks in Section 3 give you off-season content angles specifically. The tone shifts from "tourist appeal" to "community core." Both audiences matter. Neither should be abandoned.</div></div>
 
     <div class="complete-row">
       <button class="btn btn-primary btn-lg" id="done-s5" onclick="markDone('s5')">✓ Mark Section Complete</button>
@@ -1595,19 +1595,19 @@ select option{background:var(--bg2);color:var(--text1)}
         <div class="prompt-card">
           <div class="prompt-cat">Content Creation</div>
           <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <div class="prompt-text" id="pt-captions">I own a restaurant called [BUSINESS NAME] in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical customer is [YOUR CUSTOMER PROFILE]. Our brand voice is warm, local, and unpretentious. Each caption should include a call to action. Keep them under 150 words each.</div>
+          <div class="prompt-text" id="pt-captions">I own a [gym / yoga studio / fitness business] called [BUSINESS NAME] in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical member is [YOUR CUSTOMER PROFILE]. Our brand voice is warm, local, and authentic. Each caption should include a call to action. Keep them under 150 words each.</div>
         </div>
 
         <div class="prompt-card">
           <div class="prompt-cat">Content Creation</div>
           <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <div class="prompt-text">Write a "behind the scenes" Instagram caption about [specific thing happening in my restaurant this week]. Make it feel personal and genuine, not like an ad. Under 100 words. Tone: warm, honest, a little proud.</div>
+          <div class="prompt-text">Write a "behind the scenes" Instagram caption about [specific thing happening in my gym or studio this week — a class, a member milestone, a training moment]. Make it feel personal and genuine, not like an ad. Under 100 words. Tone: warm, honest, a little proud.</div>
         </div>
 
         <div class="prompt-card">
           <div class="prompt-cat">Content Creation</div>
           <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <div class="prompt-text">Give me 5 Instagram Reel ideas for a restaurant in a beachside community in Long Beach, NY. They should require nothing more than my phone and basic editing. Make them feel authentic, not overly produced.</div>
+          <div class="prompt-text">Give me 5 Instagram Reel ideas for a gym or fitness studio in a beachside community in Long Beach, NY. They should require nothing more than my phone, a class clip, or basic trainer footage, and basic editing. Ideas: quick workouts, member moments, trainer tips, transformations, class previews. Make them feel authentic, not overly produced.</div>
         </div>
 
         <div class="prompt-card">
@@ -1631,13 +1631,13 @@ select option{background:var(--bg2);color:var(--text1)}
         <div class="prompt-card">
           <div class="prompt-cat">Email & Promotion</div>
           <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <div class="prompt-text">Write a short email newsletter for my restaurant in Long Beach, NY. This month's theme is [season/holiday/event]. Include: one personal note from the owner, one current menu highlight, one upcoming event or promotion, one call to action. Under 300 words. Tone: warm and local.</div>
+          <div class="prompt-text">Write a short email newsletter for my gym or fitness studio in Long Beach, NY. This month's theme is [season/holiday/fitness goal]. Include: one personal note from the owner, one current class highlight or member success story, one upcoming event, challenge, or promotion, one call to action. Under 300 words. Tone: warm and authentic.</div>
         </div>
 
         <div class="prompt-card">
           <div class="prompt-cat">Strategy</div>
           <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
-          <div class="prompt-text">I'm a small restaurant in Long Beach, New York with about [X] followers on Instagram and [X] Google reviews. I have about 2 hours a week for marketing. What should my top 3 priorities be right now? Be specific and practical — not generic advice.</div>
+          <div class="prompt-text">I'm a small gym or fitness studio in Long Beach, New York with about [X] followers on Instagram and [X] Google reviews. I have about 2 hours a week for marketing. What should my top 3 priorities be right now? Be specific and practical — not generic advice.</div>
         </div>
 
         <div class="prompt-card" style="border:1.5px solid var(--accent)">
@@ -1647,7 +1647,7 @@ select option{background:var(--bg2);color:var(--text1)}
 
 PROMPT 2: Based on that summary, what are the 3 highest-priority marketing actions I should take next month?
 
-PROMPT 3: Write me a 30-day content calendar for next month for a restaurant in Long Beach, NY. The month is [month]. Include relevant seasonal hooks and local context.
+PROMPT 3: Write me a 30-day content calendar for next month for a gym or fitness studio in Long Beach, NY. The month is [month]. Include relevant seasonal fitness goals, class themes, and local context.
 
 PROMPT 4: I want to grow my Google review count from [current] to [target] over the next 30 days. Give me a specific, practical plan for how to ask for more reviews without being awkward.</div>
         </div>
@@ -1664,12 +1664,12 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
   <div id="page-s8" class="page">
     <div class="sec-eyebrow">Section 8</div>
     <div class="sec-title">Your Lead Capture System</div>
-    <div class="sec-desc">Getting people interested in your restaurant is only half the job. This section gives you a system that takes an inquiry from scattered to organized in one step.</div>
+    <div class="sec-desc">Getting people interested in your gym is only half the job. This section gives you a system that takes an inquiry from scattered to organized in one step.</div>
     <div class="sec-divider"></div>
 
     <div class="callout callout-gold">
       <div class="callout-title">Why This Exists</div>
-      <p>When a private dining inquiry arrives as a DM and you don't see it for six hours, or you lose the details in a thread, you've lost a lead — not because of your food, but because of a communication gap a simple form fixes permanently.</p>
+      <p>When a personal training inquiry or membership question arrives as a DM and you don't see it for six hours, or you lose the details in a thread, you've lost a lead — not because of your classes, but because of a communication gap a simple form fixes permanently.</p>
     </div>
 
     <div class="card" style="margin-top:18px">
@@ -1682,16 +1682,16 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
             <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Name and contact info</div>
             <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Type of inquiry</div>
             <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Preferred date and time</div>
-            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Party size</div>
-            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Occasion</div>
-            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Dietary restrictions</div>
-            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Budget range (optional)</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Fitness goals / What brings you in</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Experience level</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Injuries or limitations</div>
+            <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ Interested in personal training?</div>
             <div style="font-size:13px;color:var(--text2);padding:6px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border)">✓ How they heard about you</div>
           </div>
         </div>
         <div class="callout callout-teal">
           <div class="callout-title">Where to Share Your Form Link</div>
-          <p>Instagram bio (as one Linktree option, labeled "Private Dining Inquiry") · Facebook page Book Now button · Your website contact page · Instagram DM auto-reply (Settings → Business → Saved Replies)</p>
+          <p>Instagram bio (as one Linktree option, labeled "Personal Training Inquiry" or "Class Inquiry") · Facebook page Book Now button · Your website contact page · Instagram DM auto-reply (Settings → Business → Saved Replies)</p>
         </div>
       </div>
     </div>
@@ -1699,15 +1699,15 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
     <div class="card">
       <div class="card-head"><span class="card-icon">💬</span><div class="card-title">8B. Follow-Up Question Bank</div></div>
       <div class="card-body">
-        <div style="background:var(--bg3);border-radius:var(--r-sm);padding:14px;margin-bottom:14px;font-style:italic;font-size:13px;color:var(--text3);border-left:3px solid var(--teal)">Start with: "Thanks so much for reaching out — sounds like a great evening! A couple of quick questions to help us plan the right experience for you:"</div>
+        <div style="background:var(--bg3);border-radius:var(--r-sm);padding:14px;margin-bottom:14px;font-style:italic;font-size:13px;color:var(--text3);border-left:3px solid var(--teal)">Start with: "Thanks so much for reaching out! A few quick questions to help us match you with the right program and trainer:"</div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What's the occasion and who is the guest of honor?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Do you have a preferred area — outdoor, indoor, private room?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Are you thinking a set menu or ordering from our regular menu?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Any dietary restrictions — allergies, vegetarian, gluten-free?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Would you like us to arrange a cake or special decorations?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Have you dined with us before?</div>
-          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Is there a budget per person we should work around?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What are your main fitness goals right now?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What's your experience level with fitness — beginner, intermediate, or advanced?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Do you have any injuries or limitations we should know about?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Are you interested in group classes, personal training, or both?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What time of day works best for you to work out?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">Have you worked with a trainer before or taken fitness classes regularly?</div>
+          <div style="font-size:13px;color:var(--text2);padding:10px 14px;background:var(--bg2);border-radius:var(--r-sm);border:1px solid var(--border)">What brought you in to inquire about us today?</div>
         </div>
       </div>
     </div>
@@ -1722,7 +1722,7 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
   <div id="page-s9" class="page">
     <div class="sec-eyebrow">Section 9</div>
     <div class="sec-title">Your Post-Event Survey System</div>
-    <div class="sec-desc">Most restaurants that host events have no idea how they were actually perceived. This system captures real feedback, builds a warm marketing list, and gives you a reason to re-engage attendees — all at once.</div>
+    <div class="sec-desc">Most gyms that host events, challenges, or special classes have no idea how they were actually perceived. This system captures real feedback, builds a warm marketing list, and gives you a reason to re-engage attendees — all at once.</div>
     <div class="sec-divider"></div>
 
     <div class="callout callout-teal">
@@ -1736,7 +1736,7 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
         <table class="inc-table">
           <thead><tr><th>Model</th><th>How It Works</th><th>Best For</th></tr></thead>
           <tbody>
-            <tr><td><strong>Instant Discount</strong></td><td>"Fill out our 2-minute survey and get 15% off your next visit." Code shown on the thank-you page immediately.</td><td>Restaurants with strong repeat-visit model</td></tr>
+            <tr><td><strong>Instant Discount</strong></td><td>"Fill out our 2-minute survey and get 15% off your next month membership or 2 free classes." Code shown on the thank-you page immediately.</td><td>Events that sell out - visiting trainers/teachers, competition specific training classes, evening events.</td></tr>
             <tr><td><strong>Raffle Entry</strong></td><td>"Complete the survey for a chance to win a $50 Amazon gift card." Winner announced on Instagram within a week.</td><td>Any event type — universally appealing</td></tr>
             <tr><td><strong>Early Access</strong></td><td>"Survey respondents get first access to tickets for our next event." High perceived value, zero cost to you.</td><td>Events that sell out — prix-fixe, holiday parties</td></tr>
           </tbody>
@@ -1748,9 +1748,9 @@ PROMPT 4: I want to grow my Google review count from [current] to [target] over 
       <div class="card-head"><span class="card-icon">📱</span><div class="card-title">9B. How to Distribute the Survey</div></div>
       <div class="card-body">
         <div style="display:flex;flex-direction:column;gap:12px">
-          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">📲</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">QR Code on a Table Card</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Generate a free QR code at qr-code-generator.com linking to your survey. Print on a small card, one per table. Add: "Tell us what you thought — scan for a 2-minute survey and get 15% off your next visit."</div></div></div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">📲</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">QR Code on a Studio Card or Membership Card</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Generate a free QR code at qr-code-generator.com linking to your survey. Print on a small card or add to membership cards. Add: "Tell us what you thought — scan for a 2-minute survey and get 15% off your next month or 2 free classes."</div></div></div>
           <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">📸</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">Instagram Story During or After the Event</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Post a Story with the survey link in the last 30–60 minutes while energy is still high. Use a countdown to the incentive deadline if using a time-limited offer.</div></div></div>
-          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">🗣️</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">Verbal Ask by Staff</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Train one person to say: "We hope you had a wonderful evening. There's a QR code on the table to share your feedback — and you'll get [incentive] just for filling it out." A warm verbal ask converts people who saw the card but didn't act.</div></div></div>
+          <div style="background:var(--bg3);border-radius:var(--r-sm);padding:16px;display:flex;gap:14px;align-items:flex-start"><div style="font-size:24px">🗣️</div><div><div style="font-weight:700;color:var(--text1);margin-bottom:4px;font-size:14px">Verbal Ask by Trainer/Staff</div><div style="font-size:13px;color:var(--text2);line-height:1.6">Train one person to say: "Thanks for coming today! There's a QR code here to share quick feedback — and you'll get [incentive] just for filling it out." A warm verbal ask converts people who saw the code but didn't act.</div></div></div>
         </div>
       </div>
     </div>
@@ -1921,7 +1921,7 @@ function updatePrompts() {
   const name = document.getElementById('f-biz-name')?.value || '[BUSINESS NAME]';
   const cust = document.getElementById('f-cust-common')?.value || '[YOUR CUSTOMER PROFILE]';
   const el = document.getElementById('pt-captions');
-  if(el) el.textContent = `I own a restaurant called ${name} in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical customer is ${cust}. Our brand voice is warm, local, and unpretentious. Each caption should include a call to action. Keep them under 150 words each.`;
+  if(el) el.textContent = `I own a gym or fitness studio called ${name} in Long Beach, New York. Write me 10 Instagram caption ideas for this week. My typical member is ${cust}. Our brand voice is warm, local, and authentic. Each caption should include a call to action. Keep them under 150 words each.`;
 }
 
 // ── VOICE TAGS ───────────────────────────────────────────────────────────────
@@ -2292,10 +2292,10 @@ async function analyzeMetrics() {
   outputEl.textContent = 'Analyzing your metrics...';
   outputEl.classList.remove('empty');
 
-  const bizName = ls.get('field_biz-name','') || 'this restaurant';
+  const bizName = ls.get('field_biz-name','') || 'this gym';
   const dataStr = metricsLog.map((w,i) => `Week ${i+1} (${w.date}): IG Reach=${w['ig-reach']||0}, Likes=${w['ig-likes']||0}, Comments=${w['ig-comments']||0}, Saves=${w['ig-saves']||0}, Posts=${w['ig-posts']||0}, GBP Views=${w['gbp-views']||0}, Calls=${w['gbp-calls']||0}, Directions=${w['gbp-dirs']||0}`).join('\n');
 
-  const prompt = `You are a marketing consultant for ${bizName}, a small restaurant in Long Beach, New York. Analyze this marketing data and provide specific, actionable recommendations:
+  const prompt = `You are a marketing consultant for ${bizName}, a small gym or fitness studio in Long Beach, New York. Analyze this marketing data and provide specific, actionable recommendations:
 
 ${dataStr}
 
@@ -2305,7 +2305,7 @@ Provide your analysis in this format:
 3. WHAT NEEDS ATTENTION (1-2 specific issues)
 4. TOP 3 ACTIONS FOR NEXT WEEK (numbered, very specific and actionable)
 
-Keep your response concise and practical. No generic advice — be specific to a small local restaurant in a seasonal beach community.`;
+Keep your response concise and practical. No generic advice — be specific to a small local gym or fitness studio in a seasonal beach community.`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
